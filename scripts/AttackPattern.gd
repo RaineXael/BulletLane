@@ -41,6 +41,7 @@ func on_timer_runout():
 	print('the time, is , out, on the pa pap sap asp sap asp as')
 	#go to the next pattern
 	#timer.start()
+	current_loop_count -= 1
 	if current_loop_count == 0:
 		on_pattern_complete.emit()
 	else:

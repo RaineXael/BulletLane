@@ -39,12 +39,13 @@ metadata/_custom_type_script = "uid://5dy0xyr5llae"
 
 [node name="AttackPattern" type="Node" parent="AttackPatternManager"]
 script = ExtResource("4_5d20e")
+time_until_next_attack = 0.8
 loop_count = 3
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="RegularBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern"]
 script = ExtResource("5_ao2et")
-angle = 82.0
+angle = 80.0
 metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="RegularBulletAttack2" type="Node" parent="AttackPatternManager/AttackPattern"]
@@ -54,11 +55,12 @@ metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="RegularBulletAttack3" type="Node" parent="AttackPatternManager/AttackPattern"]
 script = ExtResource("5_ao2et")
-angle = 98.0
+angle = 100.0
 metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="AttackPattern2" type="Node" parent="AttackPatternManager"]
 script = ExtResource("4_5d20e")
+time_until_next_attack = 0.8
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="HomingBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern2"]

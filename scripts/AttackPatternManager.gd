@@ -34,12 +34,11 @@ func _process(delta: float) -> void:
 	
 func on_timer_runout():
 	print('the time, is , out,')
-	#go to the next pattern
+	#go to the next patternd
+	patterns[current_pattern].enter_attack()
 	current_pattern += 1
 	if current_pattern > patterns.size() - 1:
 		current_pattern = 0
-	patterns[current_pattern].enter_attack()
-
 func on_pattern_complete():
-	timer.time = patterns[current_pattern].time_until_next_attack
+	timer.wait_time = patterns[current_pattern].time_until_next_attack
 	timer.start()

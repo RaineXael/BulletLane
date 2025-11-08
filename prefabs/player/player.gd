@@ -9,9 +9,9 @@ const FOCUS_SPEED = 60.0
 const JUMP_VELOCITY = -400.0
 var lives = 3
 
-const DODGE_TIME = 0.1
+const DODGE_TIME = 0.18
 const DODGE_COOLDOWN = 1.0
-const DODGE_SPEED = 450.0
+const DODGE_SPEED = 380.0
 var prev_direction = 1.0
 
 @export var bullet_speed = 500.0
