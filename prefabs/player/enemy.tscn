@@ -60,19 +60,25 @@ metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="AttackPattern2" type="Node" parent="AttackPatternManager"]
 script = ExtResource("4_5d20e")
-time_until_next_attack = 0.8
+time_until_next_attack = 0.1
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
-
-[node name="HomingBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern2"]
-script = ExtResource("6_ygc60")
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
 
 [node name="HomingBulletAttack2" type="Node" parent="AttackPatternManager/AttackPattern2"]
 script = ExtResource("6_ygc60")
 metadata/_custom_type_script = "uid://dnytoepu7kk64"
 
-[node name="HomingBulletAttack3" type="Node" parent="AttackPatternManager/AttackPattern2"]
+[node name="AttackPattern3" type="Node" parent="AttackPatternManager"]
+script = ExtResource("4_5d20e")
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="HomingBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern3"]
 script = ExtResource("6_ygc60")
+angle_deviance = 10.0
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="HomingBulletAttack3" type="Node" parent="AttackPatternManager/AttackPattern3"]
+script = ExtResource("6_ygc60")
+angle_deviance = -10.0
 metadata/_custom_type_script = "uid://dnytoepu7kk64"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
