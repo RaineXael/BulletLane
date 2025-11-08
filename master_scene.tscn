@@ -1,0 +1,53 @@
+[gd_scene load_steps=8 format=3 uid="uid://cic5rtm7rlith"]
+
+[ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
+[ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
+[ext_resource type="PackedScene" uid="uid://xj78eupcw0se" path="res://prefabs/player/bullet.tscn" id="2_mee4f"]
+[ext_resource type="PackedScene" uid="uid://cplptgt0lpi6k" path="res://prefabs/player/enemy.tscn" id="3_fgsy8"]
+[ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
+[ext_resource type="Script" uid="uid://dx0uhybppoymy" path="res://backrorund_paralax.gd" id="6_w1x0q"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_40lka"]
+size = Vector2(23, 352)
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Player" parent="." instance=ExtResource("1_40lka")]
+position = Vector2(247, 222)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-10, 97)
+shape = SubResource("RectangleShape2D_40lka")
+
+[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+position = Vector2(340, 0)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+position = Vector2(152, 146)
+shape = SubResource("RectangleShape2D_40lka")
+
+[node name="Area2D" parent="." instance=ExtResource("2_mee4f")]
+position = Vector2(197, 163)
+angle = 0.785
+speed = 5
+
+[node name="Enemy" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(128, 68)
+
+[node name="SprLand" type="Sprite2D" parent="."]
+position = Vector2(106, 266)
+texture = ExtResource("4_woiao")
+
+[node name="SprLand2" type="Sprite2D" parent="SprLand"]
+position = Vector2(320, 0)
+texture = ExtResource("4_woiao")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.38477144, 0.3059693, 0.4520445, 1)
+z_index = -1
+position = Vector2(550, 129)
+scale = Vector2(2, 2)
+texture = ExtResource("2_jqmp6")
+script = ExtResource("6_w1x0q")

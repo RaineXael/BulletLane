@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=3 uid="uid://cop5cdplktfw8"]
+
+[ext_resource type="Script" uid="uid://co0whhsv0s5pf" path="res://prefabs/player/player.gd" id="1_rdx4y"]
+[ext_resource type="Texture2D" uid="uid://cpfwvnkgegrqq" path="res://sprites/temp.png.png" id="1_sxsrd"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_tvfjm"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_sxsrd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_sxsrd"]
+size = Vector2(16, 16)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1mm"]
+size = Vector2(3, 3)
+
+[node name="Player" type="CharacterBody2D"]
+script = ExtResource("1_rdx4y")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_tvfjm")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_sxsrd")
+
+[node name="Hitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+shape = SubResource("RectangleShape2D_wv1mm")
+
+[connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
