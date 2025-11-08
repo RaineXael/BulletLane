@@ -10,10 +10,10 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40lka"]
 size = Vector2(23, 352)
 
-[node name="Node2D" type="Node2D"]
+[node name="master_scene" type="Node2D"]
 
 [node name="Player" parent="." instance=ExtResource("1_40lka")]
-position = Vector2(247, 222)
+position = Vector2(147, 149)
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -22,7 +22,7 @@ position = Vector2(-10, 97)
 shape = SubResource("RectangleShape2D_40lka")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
-position = Vector2(340, 0)
+position = Vector2(180, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
 position = Vector2(152, 146)
@@ -34,10 +34,37 @@ angle = 0.785
 speed = 5
 
 [node name="Enemy" parent="." instance=ExtResource("3_fgsy8")]
-position = Vector2(128, 68)
+position = Vector2(81, 46)
+
+[node name="Enemy2" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(136, 32)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(183, 31)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(223, 46)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(264, 60)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(213, 74)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(166, 82)
+
+[node name="Enemy8" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(128, 81)
+
+[node name="Enemy9" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(90, 83)
+
+[node name="Enemy10" parent="." instance=ExtResource("3_fgsy8")]
+position = Vector2(46, 67)
 
 [node name="SprLand" type="Sprite2D" parent="."]
-position = Vector2(106, 266)
+position = Vector2(-7, 195)
 texture = ExtResource("4_woiao")
 
 [node name="SprLand2" type="Sprite2D" parent="SprLand"]
@@ -45,9 +72,11 @@ position = Vector2(320, 0)
 texture = ExtResource("4_woiao")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-modulate = Color(0.38477144, 0.3059693, 0.4520445, 1)
+modulate = Color(0.24461085, 0.18888342, 0.2917189, 1)
 z_index = -1
-position = Vector2(550, 129)
-scale = Vector2(2, 2)
+position = Vector2(283, 102)
 texture = ExtResource("2_jqmp6")
 script = ExtResource("6_w1x0q")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(160, 90)

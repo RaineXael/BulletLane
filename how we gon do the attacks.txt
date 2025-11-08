@@ -1,0 +1,20 @@
+OKAY SO
+Each enemy has an attackpattermnanager class
+that contains a list of attack patterns, which
+are a collection of attacks.
+Each attack is like these:
+	Bullet: Speed and angle.
+	PlayerFollowingBullet: Speed & a toggle for following player + prediction or not
+	Wait: A wait timer, before it goes to the next attack. Good for different patterns per attack.
+	Each attackpattern in the attack pattern manager would have a repeat counter and possibly a wait float until it goes to the next.
+	
+	tl;dk
+	AttackPatternmanager => AttackPattern[]
+	AttackPattern => Attack[]
+	
+	Each attack is a declaration of what bullet to spawn and where
+	and whatnot.
+	
+	yeah
+	
+	sounds sane enough,,,
