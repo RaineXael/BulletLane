@@ -1,21 +1,28 @@
-[gd_scene load_steps=9 format=3 uid="uid://cplptgt0lpi6k"]
+[gd_scene load_steps=7 format=3 uid="uid://cplptgt0lpi6k"]
 
-[ext_resource type="Texture2D" uid="uid://cpfwvnkgegrqq" path="res://sprites/temp.png.png" id="1_fm11j"]
 [ext_resource type="Script" uid="uid://8ua42dr3lhmk" path="res://prefabs/player/enemy.gd" id="1_n33bj"]
-[ext_resource type="Script" uid="uid://5dy0xyr5llae" path="res://scripts/AttackPatternManager.gd" id="3_a5max"]
-[ext_resource type="Script" uid="uid://teyuofvdnxxw" path="res://scripts/AttackPattern.gd" id="4_5d20e"]
-[ext_resource type="Script" uid="uid://dt7gmivq44k88" path="res://scripts/Attacks/RegularBulletAttack.gd" id="5_ao2et"]
-[ext_resource type="Script" uid="uid://dnytoepu7kk64" path="res://scripts/Attacks/HomingBulletAttack.gd" id="6_ygc60"]
+[ext_resource type="Texture2D" uid="uid://koqet0khli1x" path="res://sprites/beeeeeee.png" id="2_n33bj"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_a5max"]
+atlas = ExtResource("2_n33bj")
+region = Rect2(0, 0, 20, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5d20e"]
+atlas = ExtResource("2_n33bj")
+region = Rect2(20, 0, 20, 20)
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_n33bj"]
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_fm11j")
+"texture": SubResource("AtlasTexture_a5max")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5d20e")
 }],
 "loop": true,
 "name": &"default",
-"speed": 5.0
+"speed": 12.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_n33bj"]
@@ -23,62 +30,16 @@ size = Vector2(16, 16)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_n33bj")
+pattern_manager_prefab = "uid://bwvu26td23io0"
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n33bj")
+autoplay = "default"
+frame_progress = 0.8996584
 
 [node name="Hitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_n33bj")
-
-[node name="AttackPatternManager" type="Node" parent="." node_paths=PackedStringArray("parent_node")]
-script = ExtResource("3_a5max")
-parent_node = NodePath("..")
-metadata/_custom_type_script = "uid://5dy0xyr5llae"
-
-[node name="AttackPattern" type="Node" parent="AttackPatternManager"]
-script = ExtResource("4_5d20e")
-time_until_next_attack = 0.8
-loop_count = 3
-metadata/_custom_type_script = "uid://teyuofvdnxxw"
-
-[node name="RegularBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern"]
-script = ExtResource("5_ao2et")
-angle = 80.0
-metadata/_custom_type_script = "uid://dt7gmivq44k88"
-
-[node name="RegularBulletAttack2" type="Node" parent="AttackPatternManager/AttackPattern"]
-script = ExtResource("5_ao2et")
-angle = 90.0
-metadata/_custom_type_script = "uid://dt7gmivq44k88"
-
-[node name="RegularBulletAttack3" type="Node" parent="AttackPatternManager/AttackPattern"]
-script = ExtResource("5_ao2et")
-angle = 100.0
-metadata/_custom_type_script = "uid://dt7gmivq44k88"
-
-[node name="AttackPattern2" type="Node" parent="AttackPatternManager"]
-script = ExtResource("4_5d20e")
-time_until_next_attack = 0.1
-metadata/_custom_type_script = "uid://teyuofvdnxxw"
-
-[node name="HomingBulletAttack2" type="Node" parent="AttackPatternManager/AttackPattern2"]
-script = ExtResource("6_ygc60")
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
-
-[node name="AttackPattern3" type="Node" parent="AttackPatternManager"]
-script = ExtResource("4_5d20e")
-metadata/_custom_type_script = "uid://teyuofvdnxxw"
-
-[node name="HomingBulletAttack" type="Node" parent="AttackPatternManager/AttackPattern3"]
-script = ExtResource("6_ygc60")
-angle_deviance = 10.0
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
-
-[node name="HomingBulletAttack3" type="Node" parent="AttackPatternManager/AttackPattern3"]
-script = ExtResource("6_ygc60")
-angle_deviance = -10.0
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]

@@ -16,6 +16,7 @@ func _ready() -> void:
 	parent_node = get_parent().parent_node
 	attacks = get_children()
 	timer = Timer.new()
+	timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
 	parent_node.add_child.call_deferred(timer)
 	timer.one_shot = true
 	timer.wait_time = time_until_next_attack

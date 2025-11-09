@@ -4,7 +4,7 @@
 [ext_resource type="Script" uid="uid://dl3di0ch1xv17" path="res://prefabs/player/bullet.gd" id="1_w0obd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w0obd"]
-size = Vector2(4, 6)
+size = Vector2(4, 4)
 
 [node name="Bullet" type="Area2D"]
 script = ExtResource("1_w0obd")

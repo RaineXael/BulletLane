@@ -19,6 +19,7 @@ func _ready() -> void:
 		#attatch a 'on-complete-pattern' signal to a fn
 	
 	timer = Timer.new()
+	timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
 	timer.one_shot = true
 	timer.autostart = true
 	timer.wait_time = initial_spawn

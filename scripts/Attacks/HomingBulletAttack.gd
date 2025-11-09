@@ -14,7 +14,7 @@ func spawn_attack(pos:Vector2):
 	a.speed = speed
 	
 	a.type = 'enemy'
-	get_node("/root/master_scene").add_child(a)
+	
 	print('super spawn the boolet!')
 	a.global_position = pos
 	
@@ -22,7 +22,7 @@ func spawn_attack(pos:Vector2):
 		pass
 	var diff = player.global_position - pos
 	a.angle = atan2(diff.y, diff.x) + deg_to_rad(angle_deviance)
-	
+	get_node("/root/master_scene").add_child(a)
 	#get the position of the player and aim
 	#towards em with some atan bullshit
 	#if tracking is enabled, add movement to that

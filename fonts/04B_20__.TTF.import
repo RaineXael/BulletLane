@@ -2,18 +2,18 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://de5088kbbbdxp"
-path="res://.godot/imported/04B_25__.TTF-23294ca474179f69dd52c3857207faa8.fontdata"
+uid="uid://dk4jvlj24ktsa"
+path="res://.godot/imported/04B_20__.TTF-452804e6a48acdd313535e6c41352b6b.fontdata"
 
 [deps]
 
-source_file="res://audio/fonts/04B_25__.TTF"
-dest_files=["res://.godot/imported/04B_25__.TTF-23294ca474179f69dd52c3857207faa8.fontdata"]
+source_file="res://fonts/04B_20__.TTF"
+dest_files=["res://.godot/imported/04B_20__.TTF-452804e6a48acdd313535e6c41352b6b.fontdata"]
 
 [params]
 
 Rendering=null
-antialiasing=0
+antialiasing=1
 generate_mipmaps=false
 disable_embedded_bitmaps=true
 multichannel_signed_distance_field=false
@@ -23,19 +23,14 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=0
+subpixel_positioning=1
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null
 fallbacks=[]
 Compress=null
 compress=true
-preload=[{
-"chars": [],
-"glyphs": [],
-"name": "New Configuration",
-"size": Vector2i(16, 0)
-}]
+preload=[]
 language_support={}
 script_support={}
 opentype_features={}

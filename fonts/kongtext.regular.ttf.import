@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://bkwthg18k2ejk"
-path="res://.godot/imported/04B_30__.TTF-16a226062924cc4bd8d0feae4e977867.fontdata"
+uid="uid://drven480kpiup"
+path="res://.godot/imported/kongtext.regular.ttf-85dafaf550ebba9433dee589af36fa4b.fontdata"
 
 [deps]
 
-source_file="res://audio/fonts/04B_30__.TTF"
-dest_files=["res://.godot/imported/04B_30__.TTF-16a226062924cc4bd8d0feae4e977867.fontdata"]
+source_file="res://fonts/kongtext.regular.ttf"
+dest_files=["res://.godot/imported/kongtext.regular.ttf-85dafaf550ebba9433dee589af36fa4b.fontdata"]
 
 [params]
 

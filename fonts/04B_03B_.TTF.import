@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://drven480kpiup"
-path="res://.godot/imported/kongtext.regular.ttf-8c1c9bfddbc59df787cdf13f940ee354.fontdata"
+uid="uid://c3gvj741r85wq"
+path="res://.godot/imported/04B_03B_.TTF-9407bb587f6c9ff9ed7ec4b241a79488.fontdata"
 
 [deps]
 
-source_file="res://audio/fonts/kongtext.regular.ttf"
-dest_files=["res://.godot/imported/kongtext.regular.ttf-8c1c9bfddbc59df787cdf13f940ee354.fontdata"]
+source_file="res://fonts/04B_03B_.TTF"
+dest_files=["res://.godot/imported/04B_03B_.TTF-9407bb587f6c9ff9ed7ec4b241a79488.fontdata"]
 
 [params]
 
@@ -23,7 +23,7 @@ allow_system_fallback=true
 force_autohinter=false
 modulate_color_glyphs=false
 hinting=1
-subpixel_positioning=1
+subpixel_positioning=4
 keep_rounding_remainders=true
 oversampling=0.0
 Fallbacks=null

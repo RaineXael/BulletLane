@@ -11,6 +11,7 @@ func spawn_attack(pos:Vector2):
 	a.speed = speed
 	a.angle = deg_to_rad(angle)
 	a.type = 'enemy'
-	get_node("/root/master_scene").add_child(a)
+	
 	print('super spawn the boolet!')
 	a.global_position = pos
+	get_node("/root/master_scene").add_child(a)

@@ -1,17 +1,23 @@
-[gd_scene load_steps=11 format=3 uid="uid://cop5cdplktfw8"]
+[gd_scene load_steps=21 format=3 uid="uid://cop5cdplktfw8"]
 
 [ext_resource type="Script" uid="uid://co0whhsv0s5pf" path="res://prefabs/player/player.gd" id="1_rdx4y"]
+[ext_resource type="Texture2D" uid="uid://bhgdq42s2t5j" path="res://sprites/hitbox.png" id="2_klv5p"]
 [ext_resource type="Texture2D" uid="uid://irix5ghyjhgy" path="res://sprites/spr_player_place.png" id="2_wv1mm"]
 [ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="3_wv1mm"]
+[ext_resource type="Texture2D" uid="uid://bl7uyuposex1d" path="res://sprites/lives.png" id="4_2c4n1"]
+[ext_resource type="AudioStream" uid="uid://dr8qww4sc5er7" path="res://audio/graze.wav" id="4_binfn"]
+[ext_resource type="AudioStream" uid="uid://cw0ss3q5r7gy7" path="res://audio/laserShoot.wav" id="6_iylwk"]
+[ext_resource type="AudioStream" uid="uid://do8uy1o5m1sxt" path="res://audio/dash.wav" id="7_ev8v4"]
+[ext_resource type="AudioStream" uid="uid://d1r52gw3qu8f4" path="res://audio/hitHurt.wav" id="8_vhck3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxsrd"]
 size = Vector2(16, 32)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_wv1mm"]
-size = Vector2(3, 3)
+size = Vector2(1, 1)
 
-[sub_resource type="Animation" id="Animation_wv1mm"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_klv5p"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -24,12 +30,38 @@ tracks/0/keys = {
 "update": 1,
 "values": [0]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
 
 [sub_resource type="Animation" id="Animation_binfn"]
 resource_name = "dodge"
+length = 0.15
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.075),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [2, 3]
+}
 
-[sub_resource type="Animation" id="Animation_klv5p"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_wv1mm"]
+resource_name = "idle"
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -60,13 +92,54 @@ tracks/0/keys = {
 "values": [1, 0]
 }
 
+[sub_resource type="Animation" id="Animation_2c4n1"]
+resource_name = "hurt"
+length = 0.5
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [4]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.033333335, 0.033433337, 0.06666667, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(3, 0), Vector2(3, 0), Vector2(-3, -3), Vector2(0, 3), Vector2(0, 0)]
+}
+
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ev8v4"]
 _data = {
 &"RESET": SubResource("Animation_klv5p"),
 &"dodge": SubResource("Animation_binfn"),
+&"hurt": SubResource("Animation_2c4n1"),
 &"idle": SubResource("Animation_wv1mm"),
 &"run": SubResource("Animation_iylwk")
 }
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_binfn"]
+size = Vector2(32, 32)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_klv5p"]
+size = Vector2(26, 15)
+
+[sub_resource type="AudioStreamRandomizer" id="AudioStreamRandomizer_ev8v4"]
+random_pitch = 1.15
+random_volume_offset_db = 2.47
+streams_count = 1
+stream_0/stream = ExtResource("6_iylwk")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rdx4y")
@@ -80,14 +153,13 @@ shape = SubResource("RectangleShape2D_sxsrd")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
 shape = SubResource("RectangleShape2D_wv1mm")
 
-[node name="Sprite" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-texture = ExtResource("2_wv1mm")
-hframes = 3
-region_rect = Rect2(0, 0, 32, 48)
+[node name="Sprite2D" type="Sprite2D" parent="Hitbox/CollisionShape2D"]
+z_index = 1
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("2_klv5p")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-root_node = NodePath("../Sprite")
+root_node = NodePath("../SpriteContainer/Sprite")
 libraries = {
 &"": SubResource("AnimationLibrary_ev8v4")
 }
@@ -109,6 +181,135 @@ offset_left = 2.0
 offset_top = 2.0
 offset_right = 94.0
 offset_bottom = 25.0
-text = "0000000000"
+text = "0000000"
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -18.0
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="LivesContainer" type="HBoxContainer" parent="CanvasLayer/Control/PanelContainer"]
+layout_mode = 2
+
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect2" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect3" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect4" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect5" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect6" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect7" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect8" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect9" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect10" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect11" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect12" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect13" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect14" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect15" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="TextureRect16" type="TextureRect" parent="CanvasLayer/Control/PanelContainer/LivesContainer"]
+layout_mode = 2
+texture = ExtResource("4_2c4n1")
+stretch_mode = 3
+
+[node name="SpriteContainer" type="Node2D" parent="."]
+position = Vector2(0, -2)
+
+[node name="Sprite" type="Sprite2D" parent="SpriteContainer"]
+texture = ExtResource("2_wv1mm")
+hframes = 5
+region_rect = Rect2(0, 0, 32, 48)
+
+[node name="GrazeHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeHitbox"]
+position = Vector2(0, -2)
+shape = SubResource("RectangleShape2D_binfn")
+
+[node name="DodgeSwipeHitbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DodgeSwipeHitbox"]
+shape = SubResource("RectangleShape2D_klv5p")
+
+[node name="GrazeSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_binfn")
+
+[node name="ShootSFX" type="AudioStreamPlayer" parent="."]
+stream = SubResource("AudioStreamRandomizer_ev8v4")
+volume_db = -15.445
+
+[node name="DashSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_ev8v4")
+volume_db = -7.208
+
+[node name="HurtSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("8_vhck3")
+volume_db = -7.208
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
+[connection signal="area_entered" from="GrazeHitbox" to="." method="_on_graze_hitbox_area_entered"]
+[connection signal="area_entered" from="DodgeSwipeHitbox" to="." method="_on_dodge_swipe_hitbox_area_entered"]

@@ -2,13 +2,13 @@
 
 importer="font_data_dynamic"
 type="FontFile"
-uid="uid://dk4jvlj24ktsa"
-path="res://.godot/imported/04B_20__.TTF-1e9dcaa8cf27f79329d4438e51c0017b.fontdata"
+uid="uid://bkwthg18k2ejk"
+path="res://.godot/imported/04B_30__.TTF-2961d1558bf3d6850cc50be39dfe57a2.fontdata"
 
 [deps]
 
-source_file="res://audio/fonts/04B_20__.TTF"
-dest_files=["res://.godot/imported/04B_20__.TTF-1e9dcaa8cf27f79329d4438e51c0017b.fontdata"]
+source_file="res://fonts/04B_30__.TTF"
+dest_files=["res://.godot/imported/04B_30__.TTF-2961d1558bf3d6850cc50be39dfe57a2.fontdata"]
 
 [params]
 
