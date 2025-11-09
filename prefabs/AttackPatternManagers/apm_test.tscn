@@ -1,24 +1,21 @@
-[gd_scene load_steps=5 format=3 uid="uid://bwvu26td23io0"]
+[gd_scene load_steps=4 format=3 uid="uid://bwvu26td23io0"]
 
 [ext_resource type="Script" uid="uid://5dy0xyr5llae" path="res://scripts/AttackPatternManager.gd" id="1_hgref"]
 [ext_resource type="Script" uid="uid://teyuofvdnxxw" path="res://scripts/AttackPattern.gd" id="2_sppra"]
 [ext_resource type="Script" uid="uid://dt7gmivq44k88" path="res://scripts/Attacks/RegularBulletAttack.gd" id="3_42enw"]
-[ext_resource type="Script" uid="uid://dnytoepu7kk64" path="res://scripts/Attacks/HomingBulletAttack.gd" id="4_m677d"]
 
-[node name="AttackPatternManager" type="Node" node_paths=PackedStringArray("parent_node")]
+[node name="AttackPatternManager" type="Node"]
 script = ExtResource("1_hgref")
-parent_node = NodePath("")
 metadata/_custom_type_script = "uid://5dy0xyr5llae"
 
 [node name="AttackPattern" type="Node" parent="."]
 script = ExtResource("2_sppra")
 time_until_next_attack = 0.8
-loop_count = 3
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="RegularBulletAttack" type="Node" parent="AttackPattern"]
 script = ExtResource("3_42enw")
-angle = 80.0
+angle = 45.0
 metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="RegularBulletAttack2" type="Node" parent="AttackPattern"]
@@ -26,9 +23,34 @@ script = ExtResource("3_42enw")
 angle = 90.0
 metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
+[node name="RegularBulletAttack4" type="Node" parent="AttackPattern"]
+script = ExtResource("3_42enw")
+angle = 135.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack5" type="Node" parent="AttackPattern"]
+script = ExtResource("3_42enw")
+angle = 180.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack6" type="Node" parent="AttackPattern"]
+script = ExtResource("3_42enw")
+angle = 225.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack7" type="Node" parent="AttackPattern"]
+script = ExtResource("3_42enw")
+angle = 271.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack8" type="Node" parent="AttackPattern"]
+script = ExtResource("3_42enw")
+angle = 45.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
 [node name="RegularBulletAttack3" type="Node" parent="AttackPattern"]
 script = ExtResource("3_42enw")
-angle = 100.0
+angle = 316.0
 metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="AttackPattern2" type="Node" parent="."]
@@ -36,20 +58,42 @@ script = ExtResource("2_sppra")
 time_until_next_attack = 0.1
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
-[node name="HomingBulletAttack2" type="Node" parent="AttackPattern2"]
-script = ExtResource("4_m677d")
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
+[node name="RegularBulletAttack" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 60.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
-[node name="AttackPattern3" type="Node" parent="."]
-script = ExtResource("2_sppra")
-metadata/_custom_type_script = "uid://teyuofvdnxxw"
+[node name="RegularBulletAttack2" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 105.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
-[node name="HomingBulletAttack" type="Node" parent="AttackPattern3"]
-script = ExtResource("4_m677d")
-angle_deviance = 10.0
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
+[node name="RegularBulletAttack4" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 150.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
-[node name="HomingBulletAttack3" type="Node" parent="AttackPattern3"]
-script = ExtResource("4_m677d")
-angle_deviance = -10.0
-metadata/_custom_type_script = "uid://dnytoepu7kk64"
+[node name="RegularBulletAttack5" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 195.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack6" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 225.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack7" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 286.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack8" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 60.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack3" type="Node" parent="AttackPattern2"]
+script = ExtResource("3_42enw")
+angle = 331.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"

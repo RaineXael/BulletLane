@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=3 uid="uid://cf10ai2q76ivk"]
+
+[ext_resource type="Script" uid="uid://bulsyd8xio0e5" path="res://scripts/Wave.gd" id="1_ajasd"]
+[ext_resource type="PackedScene" uid="uid://cplptgt0lpi6k" path="res://prefabs/enemies/enemy.tscn" id="2_lhctg"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_ajasd")
+metadata/_custom_type_script = "uid://bulsyd8xio0e5"
+
+[node name="Enemy" parent="." instance=ExtResource("2_lhctg")]
+position = Vector2(73, 33)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_lhctg")]
+position = Vector2(221, 29)
+
+[node name="Enemy3" parent="." instance=ExtResource("2_lhctg")]
+position = Vector2(181, 53)
+
+[node name="Enemy4" parent="." instance=ExtResource("2_lhctg")]
+position = Vector2(118, 56)

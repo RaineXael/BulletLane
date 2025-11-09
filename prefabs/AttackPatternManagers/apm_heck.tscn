@@ -1,0 +1,53 @@
+[gd_scene load_steps=5 format=3 uid="uid://8518ageh51ts"]
+
+[ext_resource type="Script" uid="uid://5dy0xyr5llae" path="res://scripts/AttackPatternManager.gd" id="1_e56t3"]
+[ext_resource type="Script" uid="uid://teyuofvdnxxw" path="res://scripts/AttackPattern.gd" id="2_wxoaq"]
+[ext_resource type="Script" uid="uid://dt7gmivq44k88" path="res://scripts/Attacks/RegularBulletAttack.gd" id="3_dq3d4"]
+[ext_resource type="Script" uid="uid://dnytoepu7kk64" path="res://scripts/Attacks/HomingBulletAttack.gd" id="4_u5nh2"]
+
+[node name="AttackPatternManager" type="Node"]
+script = ExtResource("1_e56t3")
+metadata/_custom_type_script = "uid://5dy0xyr5llae"
+
+[node name="AttackPattern" type="Node" parent="."]
+script = ExtResource("2_wxoaq")
+time_until_next_attack = 0.8
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="RegularBulletAttack" type="Node" parent="AttackPattern"]
+script = ExtResource("3_dq3d4")
+angle = 80.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack2" type="Node" parent="AttackPattern"]
+script = ExtResource("3_dq3d4")
+angle = 90.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="RegularBulletAttack3" type="Node" parent="AttackPattern"]
+script = ExtResource("3_dq3d4")
+angle = 100.0
+metadata/_custom_type_script = "uid://dt7gmivq44k88"
+
+[node name="AttackPattern2" type="Node" parent="."]
+script = ExtResource("2_wxoaq")
+time_until_next_attack = 0.1
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="HomingBulletAttack2" type="Node" parent="AttackPattern2"]
+script = ExtResource("4_u5nh2")
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="AttackPattern3" type="Node" parent="."]
+script = ExtResource("2_wxoaq")
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="HomingBulletAttack" type="Node" parent="AttackPattern3"]
+script = ExtResource("4_u5nh2")
+angle_deviance = 10.0
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="HomingBulletAttack3" type="Node" parent="AttackPattern3"]
+script = ExtResource("4_u5nh2")
+angle_deviance = -10.0
+metadata/_custom_type_script = "uid://dnytoepu7kk64"

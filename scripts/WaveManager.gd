@@ -1,5 +1,6 @@
 class_name WaveManager
 extends Node
+@export var starting_wave = 0
 var current_wave_index = 0	
 var current_wave_node = null
 var inter_wave_timer:Timer
@@ -12,7 +13,7 @@ func _ready() -> void:
 	inter_wave_timer.connect('timeout', begin_game)
 	add_child(inter_wave_timer)
 	
-	begin_game()
+	#begin_game()
 
 func begin_game():
 	
@@ -24,3 +25,9 @@ func next_wave():
 	if current_wave_index > waves.size()-1:
 		current_wave_index = 0
 	inter_wave_timer.start()
+
+
+func _on_button_pressed() -> void:
+	begin_game()
+	$"../CanvasLayer".queue_free()
+	$"../mus".play()

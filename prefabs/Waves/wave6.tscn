@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bh13veui15l16"]
+
+[ext_resource type="Script" uid="uid://bulsyd8xio0e5" path="res://scripts/Wave.gd" id="1_hde6e"]
+[ext_resource type="PackedScene" uid="uid://b6q1kof2u3j4m" path="res://prefabs/enemies/redbee.tscn" id="2_hde6e"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_hde6e")
+metadata/_custom_type_script = "uid://bulsyd8xio0e5"
+
+[node name="Enemy" parent="." instance=ExtResource("2_hde6e")]
+position = Vector2(156, 28)

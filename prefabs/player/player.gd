@@ -106,7 +106,9 @@ func _physics_process(delta: float) -> void:
 func on_hit_with_bullet():
 	if not dodging and not invincibility_timer > 0 and not dead:
 		lives -= 1
-		
+		var livechildren = $CanvasLayer/Control/LivesContainer.get_children()
+		if livechildren.size() > 0:
+			livechildren[0].queue_free()
 		hurt_sound.play()
 		stop_time = HIT_STUN
 		anim.play('hurt')

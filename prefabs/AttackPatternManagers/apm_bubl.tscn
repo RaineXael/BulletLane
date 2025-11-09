@@ -1,0 +1,39 @@
+[gd_scene load_steps=4 format=3 uid="uid://4lvqds7d678v"]
+
+[ext_resource type="Script" uid="uid://5dy0xyr5llae" path="res://scripts/AttackPatternManager.gd" id="1_eutf8"]
+[ext_resource type="Script" uid="uid://teyuofvdnxxw" path="res://scripts/AttackPattern.gd" id="2_nq1be"]
+[ext_resource type="Script" uid="uid://dnytoepu7kk64" path="res://scripts/Attacks/HomingBulletAttack.gd" id="4_rhrcg"]
+
+[node name="AttackPatternManager" type="Node"]
+script = ExtResource("1_eutf8")
+metadata/_custom_type_script = "uid://5dy0xyr5llae"
+
+[node name="AttackPattern" type="Node" parent="."]
+script = ExtResource("2_nq1be")
+loop_count = 5
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="HomingBulletAttack2" type="Node" parent="AttackPattern"]
+script = ExtResource("4_rhrcg")
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="AttackPattern2" type="Node" parent="."]
+script = ExtResource("2_nq1be")
+time_until_next_attack = 0.6
+metadata/_custom_type_script = "uid://teyuofvdnxxw"
+
+[node name="HomingBulletAttack3" type="Node" parent="AttackPattern2"]
+script = ExtResource("4_rhrcg")
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="HomingBulletAttack4" type="Node" parent="AttackPattern2"]
+script = ExtResource("4_rhrcg")
+angle_deviance = -10.0
+speed = 130.0
+metadata/_custom_type_script = "uid://dnytoepu7kk64"
+
+[node name="HomingBulletAttack5" type="Node" parent="AttackPattern2"]
+script = ExtResource("4_rhrcg")
+angle_deviance = 10.0
+speed = 130.0
+metadata/_custom_type_script = "uid://dnytoepu7kk64"

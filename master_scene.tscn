@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=3 uid="uid://cic5rtm7rlith"]
+[gd_scene load_steps=12 format=3 uid="uid://cic5rtm7rlith"]
 
 [ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
@@ -7,9 +7,16 @@
 [ext_resource type="Script" uid="uid://dx0uhybppoymy" path="res://backrorund_paralax.gd" id="6_w1x0q"]
 [ext_resource type="Script" uid="uid://cb5hmuf3hcdds" path="res://scripts/WaveManager.gd" id="7_2wh00"]
 [ext_resource type="AudioStream" uid="uid://om60ce354pgm" path="res://audio/mus/game.mp3" id="7_8rkql"]
+[ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="8_3mwqb"]
+[ext_resource type="FontFile" uid="uid://dk4jvlj24ktsa" path="res://fonts/04B_20__.TTF" id="9_fi4g7"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40lka"]
 size = Vector2(23, 352)
+
+[sub_resource type="LabelSettings" id="LabelSettings_dovq5"]
+font = ExtResource("9_fi4g7")
+outline_size = 8
+outline_color = Color(0, 0, 0, 1)
 
 [node name="master_scene" type="Node2D"]
 script = ExtResource("1_8rkql")
@@ -45,7 +52,6 @@ position = Vector2(160, 90)
 [node name="mus" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("7_8rkql")
 volume_db = -13.386
-autoplay = true
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
 scroll_scale = Vector2(1, 0)
@@ -64,3 +70,48 @@ script = ExtResource("6_w1x0q")
 script = ExtResource("7_2wh00")
 waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn"])
 metadata/_custom_type_script = "uid://cb5hmuf3hcdds"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Control" type="Control" parent="CanvasLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("8_3mwqb")
+
+[node name="Button" type="Button" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_right = 17.5
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Begin"
+
+[node name="Label" type="Label" parent="CanvasLayer/Control"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -66.0
+offset_top = -60.0
+offset_right = 66.0
+offset_bottom = -25.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "BULLET
+LANE"
+label_settings = SubResource("LabelSettings_dovq5")
+horizontal_alignment = 1
+
+[connection signal="pressed" from="CanvasLayer/Control/Button" to="WaveManager" method="_on_button_pressed"]

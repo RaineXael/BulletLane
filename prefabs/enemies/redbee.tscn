@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://b6q1kof2u3j4m"]
+
+[ext_resource type="PackedScene" uid="uid://cplptgt0lpi6k" path="res://prefabs/enemies/enemy.tscn" id="1_ld1ed"]
+
+[node name="Enemy" instance=ExtResource("1_ld1ed")]
+pattern_manager_prefab = "uid://8518ageh51ts"
+
+[node name="AnimatedSprite2D" parent="." index="0"]
+self_modulate = Color(1, 0.39094868, 0.511784, 1)
