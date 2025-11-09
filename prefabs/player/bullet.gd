@@ -10,7 +10,7 @@ extends Area2D
 var grazed := false
 
 func set_color(col:Color):
-	$Sprite2D.self_modulate = col
+	$AnimatedSprite2D.self_modulate = col
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

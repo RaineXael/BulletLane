@@ -2,10 +2,10 @@
 
 [ext_resource type="Script" uid="uid://co0whhsv0s5pf" path="res://prefabs/player/player.gd" id="1_rdx4y"]
 [ext_resource type="Texture2D" uid="uid://bhgdq42s2t5j" path="res://sprites/hitbox.png" id="2_klv5p"]
-[ext_resource type="Texture2D" uid="uid://irix5ghyjhgy" path="res://sprites/spr_player_place.png" id="2_wv1mm"]
 [ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="3_wv1mm"]
 [ext_resource type="Texture2D" uid="uid://bl7uyuposex1d" path="res://sprites/lives.png" id="4_2c4n1"]
 [ext_resource type="AudioStream" uid="uid://dr8qww4sc5er7" path="res://audio/graze.wav" id="4_binfn"]
+[ext_resource type="Texture2D" uid="uid://rcs5lhuy28kj" path="res://sprites/spr_player.png" id="5_2c4n1"]
 [ext_resource type="AudioStream" uid="uid://cw0ss3q5r7gy7" path="res://audio/laserShoot.wav" id="6_iylwk"]
 [ext_resource type="AudioStream" uid="uid://do8uy1o5m1sxt" path="res://audio/dash.wav" id="7_ev8v4"]
 [ext_resource type="AudioStream" uid="uid://d1r52gw3qu8f4" path="res://audio/hitHurt.wav" id="8_vhck3"]
@@ -57,11 +57,12 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.075),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [2, 3]
+"values": [5, 6]
 }
 
-[sub_resource type="Animation" id="Animation_wv1mm"]
-resource_name = "idle"
+[sub_resource type="Animation" id="Animation_2c4n1"]
+resource_name = "hurt"
+length = 0.5
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -72,7 +73,35 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [0]
+"values": [7]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.033333335, 0.033433337, 0.06666667, 0.1, 0.16666667),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(3, 0), Vector2(3, 0), Vector2(-3, -3), Vector2(0, 3), Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wv1mm"]
+resource_name = "idle"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.3, 0.4, 0.5, 0.8333333, 0.93333334),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [0, 1, 1, 2, 1, 0]
 }
 
 [sub_resource type="Animation" id="Animation_iylwk"]
@@ -90,34 +119,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [1, 0]
-}
-
-[sub_resource type="Animation" id="Animation_2c4n1"]
-resource_name = "hurt"
-length = 0.5
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath(".:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [4]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath(".:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.033333335, 0.033433337, 0.06666667, 0.1, 0.16666667),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [Vector2(0, 0), Vector2(0, 0), Vector2(0, 0), Vector2(3, 0), Vector2(3, 0), Vector2(-3, -3), Vector2(0, 3), Vector2(0, 0)]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ev8v4"]
@@ -145,6 +146,7 @@ stream_0/stream = ExtResource("6_iylwk")
 script = ExtResource("1_rdx4y")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_sxsrd")
 
@@ -165,6 +167,7 @@ libraries = {
 }
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer"]
 layout_mode = 3
@@ -280,19 +283,21 @@ stretch_mode = 3
 position = Vector2(0, -2)
 
 [node name="Sprite" type="Sprite2D" parent="SpriteContainer"]
-texture = ExtResource("2_wv1mm")
-hframes = 5
+texture = ExtResource("5_2c4n1")
+hframes = 8
 region_rect = Rect2(0, 0, 32, 48)
 
 [node name="GrazeHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeHitbox"]
+visible = false
 position = Vector2(0, -2)
 shape = SubResource("RectangleShape2D_binfn")
 
 [node name="DodgeSwipeHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="DodgeSwipeHitbox"]
+visible = false
 shape = SubResource("RectangleShape2D_klv5p")
 
 [node name="GrazeSFX" type="AudioStreamPlayer" parent="."]

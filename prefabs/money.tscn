@@ -1,0 +1,32 @@
+[gd_scene load_steps=5 format=3 uid="uid://disgna0qh8i0r"]
+
+[ext_resource type="Texture2D" uid="uid://bf626uxp8p3ti" path="res://sprites/money.png" id="1_qldy0"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_y7j4o"]
+atlas = ExtResource("1_qldy0")
+region = Rect2(0, 0, 8, 8)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8jdr"]
+atlas = ExtResource("1_qldy0")
+region = Rect2(8, 0, 8, 8)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_4ry6p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_y7j4o")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8jdr")
+}],
+"loop": true,
+"name": &"default",
+"speed": 8.0
+}]
+
+[node name="RigidBody2D" type="RigidBody2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_4ry6p")
+autoplay = "default"
+frame_progress = 0.53224707

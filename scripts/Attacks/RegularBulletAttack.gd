@@ -6,6 +6,9 @@ extends Attack
 @export var angle = 0.0
 @export var speed = 150.0
 
+
+	
+
 func spawn_attack(pos:Vector2):
 	var a = prefab.instantiate()
 	a.speed = speed
