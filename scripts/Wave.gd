@@ -11,9 +11,10 @@ func _ready() -> void:
 
 func on_enemy_died(ref:Enemy):
 	enemy_array.erase(ref)
-
+var wave_complete_notified = false
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if enemy_array.size() <= 0:
+	if enemy_array.size() <= 0 and not wave_complete_notified:
 		on_wave_complete.emit()
+		wave_complete_notified = true
 signal on_wave_complete

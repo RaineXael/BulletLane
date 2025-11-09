@@ -1,5 +1,6 @@
-[gd_scene load_steps=8 format=3 uid="uid://cic5rtm7rlith"]
+[gd_scene load_steps=9 format=3 uid="uid://cic5rtm7rlith"]
 
+[ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
@@ -11,6 +12,7 @@
 size = Vector2(23, 352)
 
 [node name="master_scene" type="Node2D"]
+script = ExtResource("1_8rkql")
 
 [node name="Player" parent="." instance=ExtResource("1_40lka")]
 physics_interpolation_mode = 1

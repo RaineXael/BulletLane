@@ -62,7 +62,7 @@ tracks/0/keys = {
 
 [sub_resource type="Animation" id="Animation_2c4n1"]
 resource_name = "hurt"
-length = 0.5
+length = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -167,6 +167,7 @@ libraries = {
 }
 
 [node name="CanvasLayer2" type="CanvasLayer" parent="."]
+layer = 2
 visible = false
 
 [node name="Control" type="Control" parent="CanvasLayer2"]
