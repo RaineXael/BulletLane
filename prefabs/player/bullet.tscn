@@ -38,3 +38,8 @@ shape = SubResource("RectangleShape2D_w0obd")
 sprite_frames = SubResource("SpriteFrames_3q5x8")
 autoplay = "default"
 frame_progress = 0.8801699
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

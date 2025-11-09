@@ -134,7 +134,7 @@ size = Vector2(16, 16)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_n33bj")
-pattern_manager_prefab = "uid://bwvu26td23io0"
+pattern_manager_prefab = "uid://8518ageh51ts"
 bee_src = ExtResource("2_8w3ar")
 bubble_src = ExtResource("3_1n3j4")
 

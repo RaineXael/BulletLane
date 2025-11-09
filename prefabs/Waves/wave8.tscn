@@ -15,4 +15,9 @@ position = Vector2(73, 33)
 position = Vector2(221, 29)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_b6dyh")]
-position = Vector2(141, 53)
+position = Vector2(119, 52)
+pattern_manager_prefab = "uid://bwvu26td23io0"
+
+[node name="Enemy4" parent="." instance=ExtResource("3_b6dyh")]
+position = Vector2(165, 54)
+pattern_manager_prefab = "uid://bwvu26td23io0"

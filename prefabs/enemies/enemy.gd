@@ -11,8 +11,7 @@ extends Node2D
 @export_enum('bee','bubble') var anim_type = 'bee'
 
 @onready var kill_sfx = $KillSFX
-@export var bee_src:AudioStream
-@export var bubble_src:AudioStream
+
 var original_pos
 var spawned = false
 
@@ -75,9 +74,9 @@ func take_damage(dmg:float):
 		
 func on_kill():
 	if anim_type == 'bee':
-		kill_sfx.stream = bee_src
+		kill_sfx.stream = preload("res://audio/kill_enemy.wav")
 	elif anim_type == 'bubble':
-		kill_sfx.stream = bubble_src
+		kill_sfx.stream = preload("res://audio/bubble_pop.wav")
 	kill_sfx.play()
 	player.add_score(point_worth)
 	active = false

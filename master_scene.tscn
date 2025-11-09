@@ -68,7 +68,7 @@ script = ExtResource("6_w1x0q")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("7_2wh00")
-waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn"])
+waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn", "res://prefabs/Waves/wave5.tscn", "res://prefabs/Waves/wave6.tscn", "res://prefabs/Waves/wave7.tscn", "res://prefabs/Waves/wave8.tscn", "res://prefabs/Waves/wave9.tscn", "res://prefabs/Waves/wave10.tscn", "res://prefabs/Waves/wave11.tscn", "res://prefabs/Waves/wave12.tscn"])
 metadata/_custom_type_script = "uid://cb5hmuf3hcdds"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
