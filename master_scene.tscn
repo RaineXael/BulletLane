@@ -3,8 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
-[ext_resource type="PackedScene" uid="uid://dbhoktp6dh84f" path="res://prefabs/Waves/wave1.tscn" id="6_8rkql"]
 [ext_resource type="Script" uid="uid://dx0uhybppoymy" path="res://backrorund_paralax.gd" id="6_w1x0q"]
+[ext_resource type="Script" uid="uid://cb5hmuf3hcdds" path="res://scripts/WaveManager.gd" id="7_2wh00"]
 [ext_resource type="AudioStream" uid="uid://om60ce354pgm" path="res://audio/mus/game.mp3" id="7_8rkql"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_40lka"]
@@ -30,7 +30,7 @@ position = Vector2(152, 146)
 shape = SubResource("RectangleShape2D_40lka")
 
 [node name="SprLand" type="Sprite2D" parent="."]
-position = Vector2(161, 186)
+position = Vector2(159, 186)
 texture = ExtResource("4_woiao")
 
 [node name="SprLand2" type="Sprite2D" parent="SprLand"]
@@ -58,5 +58,7 @@ z_index = -1
 texture = ExtResource("2_jqmp6")
 script = ExtResource("6_w1x0q")
 
-[node name="Wave" parent="." instance=ExtResource("6_8rkql")]
-position = Vector2(1, 4)
+[node name="WaveManager" type="Node" parent="."]
+script = ExtResource("7_2wh00")
+waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn"])
+metadata/_custom_type_script = "uid://cb5hmuf3hcdds"

@@ -154,3 +154,7 @@ func _on_dodge_swipe_hitbox_area_entered(area: Area2D) -> void:
 				#for now
 				area.queue_free()
 				pass
+
+
+func _on_button_pressed() -> void:
+	pass # Replace with function body.

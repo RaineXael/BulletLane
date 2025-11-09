@@ -5,10 +5,17 @@ extends Node2D
 
 @export var health = 10.0
 
+@export var moving_length = 0
+@export var moving_speed = 100.0
+
+@export_enum('bee','bubble') var anim_type = 'bee'
+
+
 var original_pos
 var spawned = false
 
 @onready var spr = $AnimatedSprite2D
+var active = true
 
 var spawn_anim = 0.0
 
@@ -30,24 +37,31 @@ func _ready() -> void:
 	original_pos = global_position
 	global_position.y = -999
 	appear_timer.start()
+	if anim_type == 'bee':
+		spr.play('default')
+	else:
+		spr.play('bubble')
+	
 func on_spawn_timeout():
 	spawned = true
 	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:
-	spr.flip_h = player.global_position.x - global_position.x <= 0
-	if spawned:
-		if spawn_anim < PI/2:
-			spawn_anim += delta*2
-			global_position = original_pos - Vector2(0,80*cos(spawn_anim))
-		elif spawn_anim < 3*PI/2:
-			spawn_anim += delta*12
-			global_position = original_pos - Vector2(0,10*cos(spawn_anim))
-		
+	if active:
+		if anim_type == 'bee':
+			spr.flip_h = player.global_position.x - global_position.x <= 0
+		if spawned:
+			if spawn_anim < PI/2:
+				spawn_anim += delta*2
+				global_position = original_pos - Vector2(0,80*cos(spawn_anim))
+			elif spawn_anim < 3*PI/2:
+				spawn_anim += delta*12
+				global_position = original_pos - Vector2(0,10*cos(spawn_anim))
+			
 func _on_hitbox_area_entered(area: Area2D) -> void:
 	print(area)
-	if area is Bullet:
+	if area is Bullet and active:
 		if area.type == 'player':
 			take_damage(area.damage)
 			area.queue_free()
@@ -59,4 +73,21 @@ func take_damage(dmg:float):
 		
 func on_kill():
 	player.add_score(point_worth)
+	active = false
+	var a = Timer.new()
+	a.autostart = true
+	a.one_shot = true
+	a.connect('timeout', on_kill_anim_play)
+	a.wait_time = 0.3
+	add_child(a)
+	spr.play("death")
+	on_death.emit(self)
+func on_kill_anim_play():
+	
 	queue_free()
+signal on_death(ref:Enemy)
+
+
+func _on_animated_sprite_2d_animation_finished() -> void:
+	if spr.animation == 'bubblehit':
+		spr.play('')
