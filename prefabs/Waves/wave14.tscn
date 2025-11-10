@@ -1,0 +1,33 @@
+[gd_scene load_steps=4 format=3 uid="uid://c4ekffld1v8mc"]
+
+[ext_resource type="Script" uid="uid://bulsyd8xio0e5" path="res://scripts/Wave.gd" id="1_texs7"]
+[ext_resource type="PackedScene" uid="uid://bgcae2ogsuetw" path="res://prefabs/enemies/goldbee.tscn" id="2_xuj14"]
+[ext_resource type="PackedScene" uid="uid://dxxxo4onbgn7v" path="res://prefabs/enemies/bubbleenemy.tscn" id="3_xuj14"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_texs7")
+metadata/_custom_type_script = "uid://bulsyd8xio0e5"
+
+[node name="Enemy" parent="." instance=ExtResource("2_xuj14")]
+position = Vector2(61, 16)
+
+[node name="Enemy8" parent="." instance=ExtResource("2_xuj14")]
+position = Vector2(244, 13)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_xuj14")]
+position = Vector2(149, 40)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_xuj14")]
+position = Vector2(117, 36)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_xuj14")]
+position = Vector2(126, 51)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_xuj14")]
+position = Vector2(146, 59)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_xuj14")]
+position = Vector2(166, 49)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_xuj14")]
+position = Vector2(179, 33)

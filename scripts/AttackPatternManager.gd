@@ -21,13 +21,14 @@ func _ready() -> void:
 	timer = Timer.new()
 	timer.process_callback = Timer.TIMER_PROCESS_PHYSICS
 	timer.one_shot = true
-	timer.autostart = true
+	timer.autostart = false
 	timer.wait_time = initial_spawn
 	timer.connect('timeout',on_timer_runout)
 	add_child(timer)
 	
 
-
+func start_machine():
+	timer.start()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

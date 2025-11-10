@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://birl0ug8lwtyj"]
+
+[ext_resource type="Script" uid="uid://bulsyd8xio0e5" path="res://scripts/Wave.gd" id="1_lgc2v"]
+[ext_resource type="PackedScene" uid="uid://bgcae2ogsuetw" path="res://prefabs/enemies/goldbee.tscn" id="2_lgc2v"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_lgc2v")
+metadata/_custom_type_script = "uid://bulsyd8xio0e5"
+
+[node name="Enemy" parent="." instance=ExtResource("2_lgc2v")]
+position = Vector2(99, 35)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_lgc2v")]
+position = Vector2(199, 34)

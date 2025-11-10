@@ -1,10 +1,8 @@
-[gd_scene load_steps=21 format=3 uid="uid://cplptgt0lpi6k"]
+[gd_scene load_steps=19 format=3 uid="uid://cplptgt0lpi6k"]
 
 [ext_resource type="Script" uid="uid://8ua42dr3lhmk" path="res://prefabs/enemies/enemy.gd" id="1_n33bj"]
-[ext_resource type="AudioStream" uid="uid://dqkgti75018gh" path="res://audio/kill_enemy.wav" id="2_8w3ar"]
 [ext_resource type="Texture2D" uid="uid://dwsc1y7xier34" path="res://sprites/bubble.png" id="2_a5max"]
 [ext_resource type="Texture2D" uid="uid://koqet0khli1x" path="res://sprites/beeeeeee.png" id="2_n33bj"]
-[ext_resource type="AudioStream" uid="uid://bm1eylkkksqq4" path="res://audio/bubble_pop.wav" id="3_1n3j4"]
 [ext_resource type="Texture2D" uid="uid://biogqw3cxt0wy" path="res://sprites/explosion.png" id="3_5d20e"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ao2et"]
@@ -134,9 +132,6 @@ size = Vector2(16, 16)
 
 [node name="Enemy" type="Node2D"]
 script = ExtResource("1_n33bj")
-pattern_manager_prefab = "uid://8518ageh51ts"
-bee_src = ExtResource("2_8w3ar")
-bubble_src = ExtResource("3_1n3j4")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n33bj")

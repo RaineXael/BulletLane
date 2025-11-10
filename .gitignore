@@ -1,7 +1,7 @@
 # Godot 4+ specific ignores
 .godot/
 .nomedia
-
+dist/*
 # Godot-specific ignores
 .import/
 export.cfg

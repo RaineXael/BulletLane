@@ -1,7 +1,9 @@
 class_name Enemy
 extends Node2D
 
-@export_file("*.tscn") var pattern_manager_prefab:String
+var manager:AttackPatternManager
+
+@export var pattern_manager_prefab:String = "res://prefabs/AttackPatternManagers/apm_test.tscn"
 
 @export var health = 10.0
 
@@ -35,6 +37,7 @@ func _ready() -> void:
 	var loaded_path = load(pattern_manager_prefab).instantiate()
 	loaded_path.parent_node = self
 	add_child(loaded_path)
+	manager = loaded_path
 	original_pos = global_position
 	global_position.y = -999
 	appear_timer.start()
@@ -45,7 +48,7 @@ func _ready() -> void:
 	
 func on_spawn_timeout():
 	spawned = true
-	
+	manager.start_machine()
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _physics_process(delta: float) -> void:

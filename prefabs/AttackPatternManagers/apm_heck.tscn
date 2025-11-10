@@ -1,4 +1,4 @@
-[gd_scene load_steps=4 format=3 uid="uid://bwvu26td23io0"]
+[gd_scene load_steps=4 format=3 uid="uid://cl18ys3588its"]
 
 [ext_resource type="Script" uid="uid://5dy0xyr5llae" path="res://scripts/AttackPatternManager.gd" id="1_hgref"]
 [ext_resource type="Script" uid="uid://teyuofvdnxxw" path="res://scripts/AttackPattern.gd" id="2_sppra"]

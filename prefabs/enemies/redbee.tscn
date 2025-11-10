@@ -3,7 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cplptgt0lpi6k" path="res://prefabs/enemies/enemy.tscn" id="1_ld1ed"]
 
 [node name="Enemy" instance=ExtResource("1_ld1ed")]
-pattern_manager_prefab = "uid://bwvu26td23io0"
+pattern_manager_prefab = "res://prefabs/AttackPatternManagers/apm_heck.tscn"
+point_worth = 125
 
 [node name="AnimatedSprite2D" parent="." index="0"]
 self_modulate = Color(1, 0.39094868, 0.511784, 1)

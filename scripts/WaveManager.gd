@@ -23,7 +23,7 @@ func begin_game():
 func next_wave():
 	current_wave_index += 1
 	if current_wave_index > waves.size()-1:
-		current_wave_index = 0
+		current_wave_index = 10
 	inter_wave_timer.start()
 
 

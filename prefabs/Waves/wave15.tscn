@@ -1,0 +1,41 @@
+[gd_scene load_steps=6 format=3 uid="uid://uk4tfw37b74c"]
+
+[ext_resource type="Script" uid="uid://bulsyd8xio0e5" path="res://scripts/Wave.gd" id="1_l4phu"]
+[ext_resource type="PackedScene" uid="uid://bgcae2ogsuetw" path="res://prefabs/enemies/goldbee.tscn" id="2_enfnj"]
+[ext_resource type="PackedScene" uid="uid://dxxxo4onbgn7v" path="res://prefabs/enemies/bubbleenemy.tscn" id="3_enfnj"]
+[ext_resource type="PackedScene" uid="uid://cplptgt0lpi6k" path="res://prefabs/enemies/enemy.tscn" id="4_qc3an"]
+[ext_resource type="PackedScene" uid="uid://b6q1kof2u3j4m" path="res://prefabs/enemies/redbee.tscn" id="5_prg0r"]
+
+[node name="Wave" type="Node2D"]
+script = ExtResource("1_l4phu")
+metadata/_custom_type_script = "uid://bulsyd8xio0e5"
+
+[node name="Enemy" parent="." instance=ExtResource("2_enfnj")]
+position = Vector2(149, 15)
+
+[node name="Enemy2" parent="." instance=ExtResource("2_enfnj")]
+position = Vector2(149, 40)
+
+[node name="Enemy3" parent="." instance=ExtResource("3_enfnj")]
+position = Vector2(45, 37)
+
+[node name="Enemy4" parent="." instance=ExtResource("3_enfnj")]
+position = Vector2(54, 52)
+
+[node name="Enemy5" parent="." instance=ExtResource("3_enfnj")]
+position = Vector2(146, 59)
+
+[node name="Enemy6" parent="." instance=ExtResource("3_enfnj")]
+position = Vector2(251, 46)
+
+[node name="Enemy7" parent="." instance=ExtResource("3_enfnj")]
+position = Vector2(264, 30)
+
+[node name="Enemy8" parent="." instance=ExtResource("4_qc3an")]
+position = Vector2(99, 20)
+
+[node name="Enemy9" parent="." instance=ExtResource("4_qc3an")]
+position = Vector2(206, 20)
+
+[node name="Enemy10" parent="." instance=ExtResource("5_prg0r")]
+position = Vector2(146, 86)

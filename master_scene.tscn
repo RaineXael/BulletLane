@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cic5rtm7rlith"]
 
-[ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
+[ext_resource type="Script" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
@@ -68,7 +68,7 @@ script = ExtResource("6_w1x0q")
 
 [node name="WaveManager" type="Node" parent="."]
 script = ExtResource("7_2wh00")
-waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn", "res://prefabs/Waves/wave5.tscn", "res://prefabs/Waves/wave6.tscn", "res://prefabs/Waves/wave7.tscn", "res://prefabs/Waves/wave8.tscn", "res://prefabs/Waves/wave9.tscn", "res://prefabs/Waves/wave10.tscn", "res://prefabs/Waves/wave11.tscn", "res://prefabs/Waves/wave12.tscn"])
+waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn", "res://prefabs/Waves/wave5.tscn", "res://prefabs/Waves/wave6.tscn", "res://prefabs/Waves/wave7.tscn", "res://prefabs/Waves/wave8.tscn", "res://prefabs/Waves/wave9.tscn", "res://prefabs/Waves/wave10.tscn", "res://prefabs/Waves/wave11.tscn", "res://prefabs/Waves/wave12.tscn", "res://prefabs/Waves/wave13.tscn", "res://prefabs/Waves/wave14.tscn", "res://prefabs/Waves/wave15.tscn"])
 metadata/_custom_type_script = "uid://cb5hmuf3hcdds"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
