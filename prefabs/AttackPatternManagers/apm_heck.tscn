@@ -10,7 +10,7 @@ metadata/_custom_type_script = "uid://5dy0xyr5llae"
 
 [node name="AttackPattern" type="Node" parent="."]
 script = ExtResource("2_sppra")
-time_until_next_attack = 0.8
+time_until_next_attack = 0.6
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="RegularBulletAttack" type="Node" parent="AttackPattern"]
@@ -55,7 +55,7 @@ metadata/_custom_type_script = "uid://dt7gmivq44k88"
 
 [node name="AttackPattern2" type="Node" parent="."]
 script = ExtResource("2_sppra")
-time_until_next_attack = 0.1
+time_until_next_attack = 0.05
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="RegularBulletAttack" type="Node" parent="AttackPattern2"]

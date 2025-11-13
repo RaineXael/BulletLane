@@ -5,7 +5,7 @@ var enemy_array = []
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	enemy_array = get_children()
+	enemy_array = get_children(false)
 	for en:Enemy in enemy_array:
 		en.connect('on_death',on_enemy_died)
 

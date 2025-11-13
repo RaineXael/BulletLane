@@ -2,7 +2,7 @@ class_name Enemy
 extends Node2D
 
 var manager:AttackPatternManager
-
+@onready var master_scene = get_node("/root/master_scene")
 @export var pattern_manager_prefab:String = "res://prefabs/AttackPatternManagers/apm_test.tscn"
 
 @export var health = 10.0
@@ -12,8 +12,10 @@ var manager:AttackPatternManager
 
 @export_enum('bee','bubble') var anim_type = 'bee'
 
-@onready var kill_sfx = $KillSFX
+@export var revenge_enabled := true
 
+@onready var kill_sfx = $KillSFX
+@onready var revenge_bullet:Attack = $RevengeBullet
 var original_pos
 var spawned = false
 
@@ -81,6 +83,8 @@ func on_kill():
 	elif anim_type == 'bubble':
 		kill_sfx.stream = preload("res://audio/bubble_pop.wav")
 	kill_sfx.play()
+	if revenge_enabled:
+		revenge_bullet.spawn_attack(global_position)
 	player.add_score(point_worth)
 	active = false
 	var a = Timer.new()

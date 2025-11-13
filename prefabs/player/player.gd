@@ -15,6 +15,7 @@ var lives = 3
 @onready var graze_sprite = $Hitbox/CollisionShape2D/Sprite2D
 @onready var score_label = $CanvasLayer/Control/Label
 
+@onready var hand_sprite = $HandSprite
 
 var score := 0
 
@@ -45,7 +46,9 @@ func _physics_process(delta: float) -> void:
 	else:
 		if stop_time > 0:
 			stop_time -= delta
+			hand_sprite.visible = false
 		else:
+			
 			if dodge_time > 0:
 				dodge_time -= delta
 			else:
@@ -79,6 +82,15 @@ func _physics_process(delta: float) -> void:
 				if shot_timer <= 0:
 					shot_timer = shot_time
 					spawn_bullet_to_cursor()
+				if not dodging:
+					hand_sprite.visible = true
+					var mouse_pos = (get_mouse_world_pos()- global_position).normalized()
+					
+					hand_sprite.rotation = snapped(atan2(mouse_pos.y, mouse_pos.x), PI/4)
+				else:
+					hand_sprite.visible = false
+			else:
+				hand_sprite.visible = false
 			if prev_direction > 0:
 				spr.flip_h = false
 			elif prev_direction < 0:

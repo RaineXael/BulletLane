@@ -10,6 +10,7 @@ metadata/_custom_type_script = "uid://5dy0xyr5llae"
 
 [node name="AttackPattern" type="Node" parent="."]
 script = ExtResource("2_nq1be")
+time_until_next_attack = 0.7
 loop_count = 5
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
@@ -19,7 +20,7 @@ metadata/_custom_type_script = "uid://dnytoepu7kk64"
 
 [node name="AttackPattern2" type="Node" parent="."]
 script = ExtResource("2_nq1be")
-time_until_next_attack = 0.6
+time_until_next_attack = 0.4
 metadata/_custom_type_script = "uid://teyuofvdnxxw"
 
 [node name="HomingBulletAttack3" type="Node" parent="AttackPattern2"]

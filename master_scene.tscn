@@ -3,10 +3,10 @@
 [ext_resource type="Script" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
+[ext_resource type="AudioStream" uid="uid://5h23nvf3454t" path="res://audio/mus/game2.mp3" id="4_3mwqb"]
 [ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
 [ext_resource type="Script" uid="uid://dx0uhybppoymy" path="res://backrorund_paralax.gd" id="6_w1x0q"]
 [ext_resource type="Script" uid="uid://cb5hmuf3hcdds" path="res://scripts/WaveManager.gd" id="7_2wh00"]
-[ext_resource type="AudioStream" uid="uid://om60ce354pgm" path="res://audio/mus/game.mp3" id="7_8rkql"]
 [ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="8_3mwqb"]
 [ext_resource type="FontFile" uid="uid://dk4jvlj24ktsa" path="res://fonts/04B_20__.TTF" id="9_fi4g7"]
 
@@ -50,7 +50,7 @@ texture = ExtResource("4_woiao")
 position = Vector2(160, 90)
 
 [node name="mus" type="AudioStreamPlayer" parent="."]
-stream = ExtResource("7_8rkql")
+stream = ExtResource("4_3mwqb")
 volume_db = -13.386
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
