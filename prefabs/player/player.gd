@@ -18,9 +18,9 @@ var lives = 3
 @onready var hand_sprite = $HandSprite
 
 var score := 0
-
+const GRAZE_SCORE = 1
 const DODGE_TIME = 0.18
-const DODGE_COOLDOWN = 0.8
+const DODGE_COOLDOWN = 0.9
 const DODGE_SPEED = 380.0
 var prev_direction = 1.0
 
@@ -156,7 +156,7 @@ func _on_graze_hitbox_area_entered(area: Area2D) -> void:
 	if area is Bullet:
 		if area.type == 'enemy' and not area.grazed and not invincibility_timer > 0 and not dodging:
 			area.grazed = true
-			add_score(5)
+			add_score(GRAZE_SCORE)
 			graze_sound.play()
 
 

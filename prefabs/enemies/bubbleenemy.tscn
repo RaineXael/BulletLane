@@ -6,6 +6,6 @@
 pattern_manager_prefab = "res://prefabs/AttackPatternManagers/apm_bubl.tscn"
 health = 2.0
 anim_type = "bubble"
-point_worth = 75
+point_worth = 20
 
 [connection signal="animation_finished" from="AnimatedSprite2D" to="." method="_on_animated_sprite_2d_animation_finished"]
