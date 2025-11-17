@@ -6,6 +6,7 @@ var dead = false
 @onready var hurt_sound:AudioStreamPlayer = $HurtSFX
 @onready var bullet_prefab = load("res://prefabs/player/bullet.tscn")
 @onready var spr = $SpriteContainer/Sprite
+@onready var hand_spr = $HandSprite
 @onready var sprite_container = $SpriteContainer
 @onready var anim = $AnimationPlayer
 const SPEED = 145.0
@@ -24,6 +25,8 @@ const DODGE_COOLDOWN = 0.9
 const DODGE_SPEED = 380.0
 var prev_direction = 1.0
 
+@export var hand_sprite_normal:Texture2D
+@export var hand_sprite_flipped:Texture2D
 @export var bullet_speed = 500.0
 
 var stop_time = 0.0
@@ -41,6 +44,7 @@ func _physics_process(delta: float) -> void:
 	#if not is_on_floor():
 		#velocity += get_gravity() * delta
 	if dead:
+		hand_sprite.visible = false
 		anim.play('hurt')
 		death_ui.visible = true
 	else:
@@ -85,16 +89,15 @@ func _physics_process(delta: float) -> void:
 				if not dodging:
 					hand_sprite.visible = true
 					var mouse_pos = (get_mouse_world_pos()- global_position).normalized()
-					
 					hand_sprite.rotation = snapped(atan2(mouse_pos.y, mouse_pos.x), PI/4)
 				else:
 					hand_sprite.visible = false
 			else:
 				hand_sprite.visible = false
 			if prev_direction > 0:
-				spr.flip_h = false
+				set_body_fliph(false)
 			elif prev_direction < 0:
-				spr.flip_h = true
+				set_body_fliph(true)
 			# Get the input direction and handle the movement/deceleration.
 			# As good practice, you should replace UI actions with custom gameplay actions.
 			if dodging:
@@ -128,6 +131,19 @@ func on_hit_with_bullet():
 		if lives <= 0:
 			print('Your game is over!!! DIE!!!!!')
 			dead = true
+
+func set_body_fliph(flipped:bool):
+	if not Input.is_action_pressed('fire') or dodging:
+		spr.flip_h = flipped
+		
+	else:
+		var mouse_pos = (get_mouse_world_pos()- global_position).normalized()
+		spr.flip_h = mouse_pos.x < 0
+		if mouse_pos.x < 0:
+			hand_spr.texture = hand_sprite_flipped
+		else:
+			hand_spr.texture = hand_sprite_normal
+		
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:

@@ -1,7 +1,8 @@
-[gd_scene load_steps=22 format=3 uid="uid://cop5cdplktfw8"]
+[gd_scene load_steps=23 format=3 uid="uid://cop5cdplktfw8"]
 
 [ext_resource type="Script" uid="uid://co0whhsv0s5pf" path="res://prefabs/player/player.gd" id="1_rdx4y"]
 [ext_resource type="Texture2D" uid="uid://bhgdq42s2t5j" path="res://sprites/hitbox.png" id="2_klv5p"]
+[ext_resource type="Texture2D" uid="uid://coeanrglqs2gl" path="res://sprites/spr_player_hand_flipped.png" id="3_30gqm"]
 [ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="3_wv1mm"]
 [ext_resource type="PackedScene" uid="uid://bh8d0ul7if0km" path="res://prefabs/player_lives_icon.tscn" id="4_2c4n1"]
 [ext_resource type="AudioStream" uid="uid://dr8qww4sc5er7" path="res://audio/graze.wav" id="4_binfn"]
@@ -143,7 +144,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.125),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
-"values": [1, 4]
+"values": [4, 0]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_ev8v4"]
@@ -169,6 +170,8 @@ stream_0/stream = ExtResource("6_iylwk")
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_rdx4y")
+hand_sprite_normal = ExtResource("10_oo3uv")
+hand_sprite_flipped = ExtResource("3_30gqm")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 visible = false
