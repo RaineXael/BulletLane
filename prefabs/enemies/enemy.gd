@@ -73,9 +73,12 @@ func _on_hitbox_area_entered(area: Area2D) -> void:
 			area.queue_free()
 			
 func take_damage(dmg:float):
-	health -= dmg
-	if health <= 0:
-		on_kill()
+	if active:
+		health -= dmg
+		if anim_type == 'bubble':
+			spr.play('bubblehit')
+		if health <= 0:
+			on_kill()
 		
 func on_kill():
 	if anim_type == 'bee':

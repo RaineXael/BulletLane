@@ -11,8 +11,10 @@ var dead = false
 @onready var sprite_container = $SpriteContainer
 @onready var anim = $AnimationPlayer
 
-const SPEED = 145.0
-const FOCUS_SPEED = 60.0
+var focused = false
+
+const SPEED = 165.0
+const FOCUS_SPEED = 75.0
 
 var lives = 3
 @onready var graze_sprite = $Hitbox/CollisionShape2D/Sprite2D
@@ -102,12 +104,13 @@ func _physics_process(delta: float) -> void:
 					print('dodgeing')
 					anim.play('dodge')
 					dodge_time = DODGE_TIME
-			graze_sprite.visible = Input.is_action_pressed('focus')
+			graze_sprite.visible = focused
 				
 			if Input.is_action_just_pressed('fire'):
 				shot_timer = 0.0
 				
 			if Input.is_action_pressed("fire"):
+				focused = true
 				shot_timer -= delta
 				if shot_timer <= 0:
 					shot_timer = shot_time
@@ -119,6 +122,7 @@ func _physics_process(delta: float) -> void:
 				else:
 					hand_sprite.visible = false
 			else:
+				focused = false
 				hand_sprite.visible = false
 			if prev_direction > 0:
 				set_body_fliph(false)
@@ -132,7 +136,7 @@ func _physics_process(delta: float) -> void:
 				
 				var direction := Input.get_axis("left", "right")
 				if direction:
-					if Input.is_action_pressed('focus'):
+					if focused:
 						velocity.x = direction * FOCUS_SPEED
 					else:
 						velocity.x = direction * SPEED

@@ -94,7 +94,7 @@ animations = [{
 }],
 "loop": true,
 "name": &"bubblehit",
-"speed": 15.0
+"speed": 20.0
 }, {
 "frames": [{
 "duration": 1.0,
@@ -137,9 +137,8 @@ health = 8.0
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_n33bj")
-animation = &"death"
+animation = &"bubblehit"
 autoplay = "default"
-frame_progress = 0.96998644
 
 [node name="Hitbox" type="Area2D" parent="."]
 
