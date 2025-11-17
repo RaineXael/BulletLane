@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cic5rtm7rlith"]
 
-[ext_resource type="Script" path="res://master_scene.gd" id="1_8rkql"]
+[ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="AudioStream" uid="uid://5h23nvf3454t" path="res://audio/mus/game2.mp3" id="4_3mwqb"]

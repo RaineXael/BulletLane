@@ -4,14 +4,16 @@ extends CharacterBody2D
 var dead = false
 @onready var graze_sound:AudioStreamPlayer = $GrazeSFX
 @onready var hurt_sound:AudioStreamPlayer = $HurtSFX
+@onready var jump_sound:AudioStreamPlayer = $JumpSFX
 @onready var bullet_prefab = load("res://prefabs/player/bullet.tscn")
 @onready var spr = $SpriteContainer/Sprite
 @onready var hand_spr = $HandSprite
 @onready var sprite_container = $SpriteContainer
 @onready var anim = $AnimationPlayer
+
 const SPEED = 145.0
 const FOCUS_SPEED = 60.0
-const JUMP_VELOCITY = -400.0
+
 var lives = 3
 @onready var graze_sprite = $Hitbox/CollisionShape2D/Sprite2D
 @onready var score_label = $CanvasLayer/Control/Label
@@ -36,9 +38,19 @@ var dodge_cooldown = 0.0
 var dodging = false
 var shot_timer = 0.0
 
+var grounded = true
+
 var invincibility_timer = 0.0
 const INVINCIBILITY_TIME = 1.5
 @export var shot_time = 0.1
+
+const JUMP_INIT_VEL = 250.0
+const JUMP_DECAY = 800.0
+
+@onready var initial_y = global_position.y
+
+var temp_jump_vel :float
+
 func _physics_process(delta: float) -> void:
 	## Add the gravity.
 	#if not is_on_floor():
@@ -52,12 +64,21 @@ func _physics_process(delta: float) -> void:
 			stop_time -= delta
 			hand_sprite.visible = false
 		else:
-			
+			if not dodging:
+				if global_position.y < initial_y:
+					grounded = false
+					velocity.y += delta * JUMP_DECAY
+				else:
+					grounded = true
+					global_position.y = initial_y
+					velocity.y = 0
+					
 			if dodge_time > 0:
 				dodge_time -= delta
 			else:
 				if dodging:
 					dodging = false
+					velocity.y = temp_jump_vel
 					dodge_cooldown = DODGE_COOLDOWN
 				
 			if dodge_cooldown > 0:
@@ -68,10 +89,15 @@ func _physics_process(delta: float) -> void:
 			else:
 				sprite_container.modulate = Color(1.0, 1.0, 1.0, 1.0)
 			#print(dodging)
-
+			
+			if Input.is_action_just_pressed("jump") and not dodging and grounded:
+				velocity.y = -JUMP_INIT_VEL
+				jump_sound.play()
 			if Input.is_action_pressed('dodge'):
 				if not dodging and dodge_cooldown <= 0:
 					dodging = true
+					temp_jump_vel = velocity.y
+					velocity.y = 0
 					$DashSFX.play()
 					print('dodgeing')
 					anim.play('dodge')

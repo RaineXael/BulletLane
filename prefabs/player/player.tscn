@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cop5cdplktfw8"]
+[gd_scene load_steps=24 format=3 uid="uid://cop5cdplktfw8"]
 
 [ext_resource type="Script" uid="uid://co0whhsv0s5pf" path="res://prefabs/player/player.gd" id="1_rdx4y"]
 [ext_resource type="Texture2D" uid="uid://bhgdq42s2t5j" path="res://sprites/hitbox.png" id="2_klv5p"]
@@ -11,6 +11,7 @@
 [ext_resource type="AudioStream" uid="uid://do8uy1o5m1sxt" path="res://audio/dash.wav" id="7_ev8v4"]
 [ext_resource type="AudioStream" uid="uid://d1r52gw3qu8f4" path="res://audio/hitHurt.wav" id="8_vhck3"]
 [ext_resource type="Texture2D" uid="uid://d2g12qywfeflw" path="res://sprites/spr_player_hand.png" id="10_oo3uv"]
+[ext_resource type="AudioStream" uid="uid://c805uppivyhop" path="res://audio/jump.wav" id="12_hvqk4"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_sxsrd"]
 size = Vector2(16, 32)
@@ -302,6 +303,10 @@ volume_db = -7.208
 [node name="HurtSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("8_vhck3")
 volume_db = -7.208
+
+[node name="JumpSFX" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("12_hvqk4")
+volume_db = -7.443
 
 [node name="HandSprite" type="Sprite2D" parent="."]
 position = Vector2(0, -2)
