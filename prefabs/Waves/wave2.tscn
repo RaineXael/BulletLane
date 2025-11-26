@@ -8,19 +8,19 @@ script = ExtResource("1_3qpw0")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy3" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(76, 70)
+position = Vector2(39, 70)
 
 [node name="Enemy6" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(220, 66)
+position = Vector2(131, 66)
 
 [node name="Enemy4" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(141, 37)
+position = Vector2(63, 37)
 
 [node name="Enemy7" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(285, 33)
+position = Vector2(100, 33)
 
 [node name="Enemy5" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(32, 37)
+position = Vector2(16, 37)
 
 [node name="Enemy8" parent="." instance=ExtResource("2_gogd0")]
-position = Vector2(176, 33)
+position = Vector2(163, 34)

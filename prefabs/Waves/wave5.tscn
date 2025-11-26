@@ -8,13 +8,13 @@ script = ExtResource("1_ajasd")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_lhctg")]
-position = Vector2(73, 33)
+position = Vector2(30, 33)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_lhctg")]
-position = Vector2(221, 29)
+position = Vector2(155, 29)
 
 [node name="Enemy3" parent="." instance=ExtResource("2_lhctg")]
-position = Vector2(181, 53)
+position = Vector2(115, 53)
 
 [node name="Enemy4" parent="." instance=ExtResource("2_lhctg")]
-position = Vector2(118, 56)
+position = Vector2(75, 56)

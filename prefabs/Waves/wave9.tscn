@@ -10,34 +10,26 @@ script = ExtResource("1_0jwll")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_xockj")]
-position = Vector2(73, 33)
+position = Vector2(51, 33)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_xockj")]
-position = Vector2(221, 29)
+position = Vector2(123, 30)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_t6yk2")]
-position = Vector2(141, 53)
+position = Vector2(94, 47)
 
 [node name="Enemy8" parent="." instance=ExtResource("4_xockj")]
-position = Vector2(75, 65)
+position = Vector2(53, 65)
 pattern_manager_prefab = "uid://bwvu26td23io0"
-bee_src = null
-bubble_src = null
 
 [node name="Enemy9" parent="." instance=ExtResource("4_xockj")]
-position = Vector2(35, 40)
+position = Vector2(13, 40)
 pattern_manager_prefab = "uid://bwvu26td23io0"
-bee_src = null
-bubble_src = null
 
 [node name="Enemy10" parent="." instance=ExtResource("4_xockj")]
-position = Vector2(265, 40)
+position = Vector2(167, 41)
 pattern_manager_prefab = "uid://bwvu26td23io0"
-bee_src = null
-bubble_src = null
 
 [node name="Enemy7" parent="." instance=ExtResource("4_xockj")]
-position = Vector2(215, 69)
+position = Vector2(117, 70)
 pattern_manager_prefab = "uid://bwvu26td23io0"
-bee_src = null
-bubble_src = null

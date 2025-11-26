@@ -8,7 +8,7 @@ script = ExtResource("1_lgc2v")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_lgc2v")]
-position = Vector2(99, 35)
+position = Vector2(47, 33)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_lgc2v")]
-position = Vector2(199, 34)
+position = Vector2(147, 32)

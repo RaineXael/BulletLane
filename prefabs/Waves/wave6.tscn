@@ -8,4 +8,4 @@ script = ExtResource("1_hde6e")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_hde6e")]
-position = Vector2(156, 28)
+position = Vector2(91, 28)

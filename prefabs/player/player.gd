@@ -10,7 +10,7 @@ var dead = false
 @onready var hand_spr = $HandSprite
 @onready var sprite_container = $SpriteContainer
 @onready var anim = $AnimationPlayer
-
+@export var camera:Camera2D
 var focused = false
 
 const SPEED = 165.0
@@ -195,6 +195,7 @@ func spawn_bullet_to_cursor():
 	$ShootSFX.play()
 	
 func get_mouse_world_pos() -> Vector2:
+	print(get_viewport().get_mouse_position())
 	return get_viewport().get_mouse_position()
 
 

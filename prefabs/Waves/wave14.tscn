@@ -9,25 +9,25 @@ script = ExtResource("1_texs7")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_xuj14")]
-position = Vector2(61, 16)
+position = Vector2(25, 33)
 
 [node name="Enemy8" parent="." instance=ExtResource("2_xuj14")]
-position = Vector2(244, 13)
+position = Vector2(150, 30)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_xuj14")]
-position = Vector2(149, 40)
+position = Vector2(93, 59)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_xuj14")]
-position = Vector2(117, 36)
+position = Vector2(61, 55)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_xuj14")]
-position = Vector2(126, 51)
+position = Vector2(70, 70)
 
 [node name="Enemy5" parent="." instance=ExtResource("3_xuj14")]
-position = Vector2(146, 59)
+position = Vector2(90, 78)
 
 [node name="Enemy6" parent="." instance=ExtResource("3_xuj14")]
-position = Vector2(166, 49)
+position = Vector2(110, 68)
 
 [node name="Enemy7" parent="." instance=ExtResource("3_xuj14")]
-position = Vector2(179, 33)
+position = Vector2(123, 52)

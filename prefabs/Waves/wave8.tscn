@@ -9,15 +9,15 @@ script = ExtResource("1_ho4yf")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_b6dyh")]
-position = Vector2(73, 33)
+position = Vector2(13, 31)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_b6dyh")]
-position = Vector2(221, 29)
+position = Vector2(161, 27)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_b6dyh")]
-position = Vector2(119, 52)
+position = Vector2(59, 50)
 pattern_manager_prefab = "uid://bwvu26td23io0"
 
 [node name="Enemy4" parent="." instance=ExtResource("3_b6dyh")]
-position = Vector2(165, 54)
+position = Vector2(105, 52)
 pattern_manager_prefab = "uid://bwvu26td23io0"

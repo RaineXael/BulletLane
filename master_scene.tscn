@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cic5rtm7rlith"]
 
-[ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
+[ext_resource type="Script" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="AudioStream" uid="uid://5h23nvf3454t" path="res://audio/mus/game2.mp3" id="4_3mwqb"]
@@ -21,39 +21,38 @@ outline_color = Color(0, 0, 0, 1)
 [node name="master_scene" type="Node2D"]
 script = ExtResource("1_8rkql")
 
-[node name="Player" parent="." instance=ExtResource("1_40lka")]
+[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_40lka")]
 physics_interpolation_mode = 1
-position = Vector2(147, 140)
+position = Vector2(86, 271)
+camera = NodePath("")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
-position = Vector2(-10, 97)
+position = Vector2(-10, 148)
 shape = SubResource("RectangleShape2D_40lka")
 
 [node name="StaticBody2D2" type="StaticBody2D" parent="."]
 position = Vector2(180, -17)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
-position = Vector2(152, 146)
+position = Vector2(12, 146)
 shape = SubResource("RectangleShape2D_40lka")
 
 [node name="SprLand" type="Sprite2D" parent="."]
-position = Vector2(159, 186)
+position = Vector2(86, 317)
 texture = ExtResource("4_woiao")
 
 [node name="SprLand2" type="Sprite2D" parent="SprLand"]
 position = Vector2(320, 0)
 texture = ExtResource("4_woiao")
 
-[node name="Camera2D" type="Camera2D" parent="."]
-position = Vector2(160, 90)
-
 [node name="mus" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("4_3mwqb")
 volume_db = -13.386
 
 [node name="Parallax2D" type="Parallax2D" parent="."]
+scale = Vector2(2, 2)
 scroll_scale = Vector2(1, 0)
 scroll_offset = Vector2(281, 99)
 repeat_size = Vector2(570, 0)

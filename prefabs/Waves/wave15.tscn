@@ -11,31 +11,31 @@ script = ExtResource("1_l4phu")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_enfnj")]
-position = Vector2(149, 15)
+position = Vector2(92, 15)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_enfnj")]
-position = Vector2(149, 40)
+position = Vector2(92, 40)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_enfnj")]
-position = Vector2(45, 37)
+position = Vector2(23, 37)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_enfnj")]
-position = Vector2(54, 52)
+position = Vector2(32, 52)
 
 [node name="Enemy5" parent="." instance=ExtResource("3_enfnj")]
-position = Vector2(146, 59)
+position = Vector2(89, 59)
 
 [node name="Enemy6" parent="." instance=ExtResource("3_enfnj")]
-position = Vector2(251, 46)
+position = Vector2(146, 45)
 
 [node name="Enemy7" parent="." instance=ExtResource("3_enfnj")]
-position = Vector2(264, 30)
+position = Vector2(159, 29)
 
 [node name="Enemy8" parent="." instance=ExtResource("4_qc3an")]
-position = Vector2(99, 20)
+position = Vector2(56, 20)
 
 [node name="Enemy9" parent="." instance=ExtResource("4_qc3an")]
-position = Vector2(206, 20)
+position = Vector2(120, 19)
 
 [node name="Enemy10" parent="." instance=ExtResource("5_prg0r")]
-position = Vector2(146, 86)
+position = Vector2(89, 86)

@@ -9,10 +9,10 @@ script = ExtResource("1_5pp8t")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_0ju8k")]
-position = Vector2(73, 33)
+position = Vector2(34, 32)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_0ju8k")]
-position = Vector2(221, 29)
+position = Vector2(153, 29)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_n6jwi")]
-position = Vector2(141, 53)
+position = Vector2(89, 38)

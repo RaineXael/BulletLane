@@ -9,20 +9,19 @@ script = ExtResource("1_vpmr5")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_uuk3g")]
-position = Vector2(73, 33)
-pattern_manager_prefab = "res://prefabs/AttackPatternManagers/apm_test.tscn"
+position = Vector2(17, 33)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_uuk3g")]
-position = Vector2(221, 29)
+position = Vector2(165, 29)
 
 [node name="Enemy3" parent="." instance=ExtResource("3_uuk3g")]
-position = Vector2(76, 70)
+position = Vector2(20, 70)
 
 [node name="Enemy4" parent="." instance=ExtResource("3_uuk3g")]
-position = Vector2(114, 52)
+position = Vector2(58, 52)
 
 [node name="Enemy5" parent="." instance=ExtResource("3_uuk3g")]
-position = Vector2(176, 52)
+position = Vector2(120, 52)
 
 [node name="Enemy6" parent="." instance=ExtResource("3_uuk3g")]
-position = Vector2(220, 66)
+position = Vector2(164, 66)

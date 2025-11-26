@@ -8,9 +8,7 @@ script = ExtResource("1_r64dq")
 metadata/_custom_type_script = "uid://bulsyd8xio0e5"
 
 [node name="Enemy" parent="." instance=ExtResource("2_vt346")]
-position = Vector2(73, 33)
-pattern_manager_prefab = "res://prefabs/AttackPatternManagers/apm_test.tscn"
+position = Vector2(26, 32)
 
 [node name="Enemy2" parent="." instance=ExtResource("2_vt346")]
-position = Vector2(221, 29)
-pattern_manager_prefab = "res://prefabs/AttackPatternManagers/apm_test.tscn"
+position = Vector2(136, 29)
