@@ -1,11 +1,6 @@
-extends Node2D
+extends Control
 
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+@onready var main_scene = $SubViewportContainer/SubViewport
+@onready var player = $SubViewportContainer/SubViewport/Player
+func add_child_to_main_scene(child:Node):
+	main_scene.add_child(child)

@@ -1,6 +1,6 @@
 [gd_scene load_steps=12 format=3 uid="uid://cic5rtm7rlith"]
 
-[ext_resource type="Script" path="res://master_scene.gd" id="1_8rkql"]
+[ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
 [ext_resource type="AudioStream" uid="uid://5h23nvf3454t" path="res://audio/mus/game2.mp3" id="4_3mwqb"]
@@ -18,40 +18,87 @@ font = ExtResource("9_fi4g7")
 outline_size = 8
 outline_color = Color(0, 0, 0, 1)
 
-[node name="master_scene" type="Node2D"]
+[node name="master_scene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
 script = ExtResource("1_8rkql")
 
-[node name="Player" parent="." instance=ExtResource("1_40lka")]
+[node name="TextureRect" type="TextureRect" parent="."]
+modulate = Color(0.20511743, 0.20511743, 0.20511743, 1)
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -3.0
+offset_right = 383.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_jqmp6")
+expand_mode = 3
+
+[node name="SubViewportContainer" type="SubViewportContainer" parent="."]
+custom_minimum_size = Vector2(180, 320)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -90.0
+offset_top = -160.0
+offset_right = 90.0
+offset_bottom = 160.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch = true
+
+[node name="SubViewport" type="SubViewport" parent="SubViewportContainer"]
+disable_3d = true
+handle_input_locally = false
+snap_2d_transforms_to_pixel = true
+snap_2d_vertices_to_pixel = true
+canvas_item_default_texture_filter = 0
+audio_listener_enable_2d = true
+oversampling = false
+size = Vector2i(180, 320)
+
+[node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_40lka")]
 physics_interpolation_mode = 1
 position = Vector2(86, 271)
 
-[node name="StaticBody2D" type="StaticBody2D" parent="."]
+[node name="StaticBody2D" type="StaticBody2D" parent="SubViewportContainer/SubViewport"]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/StaticBody2D"]
 position = Vector2(-10, 148)
 shape = SubResource("RectangleShape2D_40lka")
 
-[node name="StaticBody2D2" type="StaticBody2D" parent="."]
+[node name="StaticBody2D2" type="StaticBody2D" parent="SubViewportContainer/SubViewport"]
 position = Vector2(180, -17)
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D2"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="SubViewportContainer/SubViewport/StaticBody2D2"]
 position = Vector2(12, 146)
 shape = SubResource("RectangleShape2D_40lka")
 
-[node name="SprLand" type="Sprite2D" parent="."]
+[node name="SprLand" type="Sprite2D" parent="SubViewportContainer/SubViewport"]
 z_index = -2
 position = Vector2(86, 317)
 texture = ExtResource("4_woiao")
 
-[node name="SprLand2" type="Sprite2D" parent="SprLand"]
+[node name="SprLand2" type="Sprite2D" parent="SubViewportContainer/SubViewport/SprLand"]
 position = Vector2(320, 0)
 texture = ExtResource("4_woiao")
 
-[node name="mus" type="AudioStreamPlayer" parent="."]
+[node name="mus" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
 stream = ExtResource("4_3mwqb")
 volume_db = -13.386
 
-[node name="Parallax2D" type="Parallax2D" parent="."]
+[node name="Parallax2D" type="Parallax2D" parent="SubViewportContainer/SubViewport"]
 scale = Vector2(2, 2)
 scroll_scale = Vector2(1, 0)
 scroll_offset = Vector2(281, 99)
@@ -59,20 +106,20 @@ repeat_size = Vector2(570, 0)
 autoscroll = Vector2(15.77, 0)
 repeat_times = 3
 
-[node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
+[node name="Sprite2D" type="Sprite2D" parent="SubViewportContainer/SubViewport/Parallax2D"]
 modulate = Color(0.24461085, 0.18888342, 0.2917189, 1)
 z_index = -10
 texture = ExtResource("2_jqmp6")
 script = ExtResource("6_w1x0q")
 
-[node name="WaveManager" type="Node" parent="."]
+[node name="WaveManager" type="Node" parent="SubViewportContainer/SubViewport"]
 script = ExtResource("7_2wh00")
 waves = Array[String](["res://prefabs/Waves/wave1.tscn", "res://prefabs/Waves/wave2.tscn", "res://prefabs/Waves/wave3.tscn", "res://prefabs/Waves/wave4.tscn", "res://prefabs/Waves/wave5.tscn", "res://prefabs/Waves/wave6.tscn", "res://prefabs/Waves/wave7.tscn", "res://prefabs/Waves/wave8.tscn", "res://prefabs/Waves/wave9.tscn", "res://prefabs/Waves/wave10.tscn", "res://prefabs/Waves/wave11.tscn", "res://prefabs/Waves/wave12.tscn", "res://prefabs/Waves/wave13.tscn", "res://prefabs/Waves/wave14.tscn", "res://prefabs/Waves/wave15.tscn"])
 metadata/_custom_type_script = "uid://cb5hmuf3hcdds"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="SubViewportContainer/SubViewport"]
 
-[node name="Control" type="Control" parent="CanvasLayer"]
+[node name="Control" type="Control" parent="SubViewportContainer/SubViewport/CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -80,8 +127,9 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 theme = ExtResource("8_3mwqb")
+metadata/_edit_use_anchors_ = true
 
-[node name="Button" type="Button" parent="CanvasLayer/Control"]
+[node name="Button" type="Button" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -94,8 +142,9 @@ offset_bottom = 20.0
 grow_horizontal = 2
 grow_vertical = 2
 text = "Begin"
+metadata/_edit_use_anchors_ = true
 
-[node name="Label" type="Label" parent="CanvasLayer/Control"]
+[node name="Label" type="Label" parent="SubViewportContainer/SubViewport/CanvasLayer/Control"]
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
@@ -112,5 +161,6 @@ text = "BULLET
 LANE"
 label_settings = SubResource("LabelSettings_dovq5")
 horizontal_alignment = 1
+metadata/_edit_use_anchors_ = true
 
-[connection signal="pressed" from="CanvasLayer/Control/Button" to="WaveManager" method="_on_button_pressed"]
+[connection signal="pressed" from="SubViewportContainer/SubViewport/CanvasLayer/Control/Button" to="SubViewportContainer/SubViewport/WaveManager" method="_on_button_pressed"]

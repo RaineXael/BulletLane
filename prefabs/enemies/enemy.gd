@@ -27,7 +27,7 @@ var spawn_anim = 0.0
 @export var point_worth = 100
 var appear_timer:Timer
 #probably really bad but idc
-@onready var player:Player = get_node('/root/master_scene/Player')
+@onready var player:Player = get_node('/root/master_scene').player
 const RANDOM_APPIRATION_FACTOR = 0.3
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

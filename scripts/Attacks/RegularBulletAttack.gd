@@ -17,4 +17,4 @@ func spawn_attack(pos:Vector2):
 	
 	print('super spawn the boolet!')
 	a.global_position = pos
-	get_node("/root/master_scene").add_child(a)
+	get_node("/root/master_scene").add_child_to_main_scene(a)

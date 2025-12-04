@@ -5,7 +5,7 @@ extends Attack
 @export var angle_deviance = 0.0
 @export var speed = 150.0
 
-@onready var player = get_node("/root/master_scene/Player")
+@onready var player = get_node("/root/master_scene").player
 
 @onready var prefab = load("res://prefabs/player/bullet.tscn")
 
@@ -22,7 +22,7 @@ func spawn_attack(pos:Vector2):
 		pass
 	var diff = player.global_position - pos
 	a.angle = atan2(diff.y, diff.x) + deg_to_rad(angle_deviance)
-	get_node("/root/master_scene").call_deferred('add_child',a) 
+	get_node("/root/master_scene").call_deferred('add_child_to_main_scene',a)
 	
 	#get the position of the player and aim
 	#towards em with some atan bullshit
