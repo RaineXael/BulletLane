@@ -3,8 +3,8 @@
 [ext_resource type="Script" uid="uid://b0wfdhx8bgcsx" path="res://master_scene.gd" id="1_8rkql"]
 [ext_resource type="PackedScene" uid="uid://cop5cdplktfw8" path="res://prefabs/player/player.tscn" id="1_40lka"]
 [ext_resource type="Texture2D" uid="uid://5072v65mtdwc" path="res://sprites/skybox.png" id="2_jqmp6"]
-[ext_resource type="AudioStream" uid="uid://5h23nvf3454t" path="res://audio/mus/game2.mp3" id="4_3mwqb"]
 [ext_resource type="Texture2D" uid="uid://crr2o8sl2lpwe" path="res://sprites/spr_land.png" id="4_woiao"]
+[ext_resource type="AudioStream" uid="uid://dus352n3jmvkh" path="res://audio/mus/game3.mp3" id="5_3mwqb"]
 [ext_resource type="Script" uid="uid://dx0uhybppoymy" path="res://backrorund_paralax.gd" id="6_w1x0q"]
 [ext_resource type="Script" uid="uid://cb5hmuf3hcdds" path="res://scripts/WaveManager.gd" id="7_2wh00"]
 [ext_resource type="Theme" uid="uid://7wukkdrkkgag" path="res://new_theme.tres" id="8_3mwqb"]
@@ -40,7 +40,7 @@ offset_right = 383.0
 grow_horizontal = 2
 grow_vertical = 2
 texture = ExtResource("2_jqmp6")
-expand_mode = 3
+expand_mode = 2
 
 [node name="SubViewportContainer" type="SubViewportContainer" parent="."]
 custom_minimum_size = Vector2(180, 320)
@@ -67,6 +67,7 @@ canvas_item_default_texture_filter = 0
 audio_listener_enable_2d = true
 oversampling = false
 size = Vector2i(180, 320)
+render_target_update_mode = 4
 
 [node name="Player" parent="SubViewportContainer/SubViewport" instance=ExtResource("1_40lka")]
 physics_interpolation_mode = 1
@@ -95,7 +96,7 @@ position = Vector2(320, 0)
 texture = ExtResource("4_woiao")
 
 [node name="mus" type="AudioStreamPlayer" parent="SubViewportContainer/SubViewport"]
-stream = ExtResource("4_3mwqb")
+stream = ExtResource("5_3mwqb")
 volume_db = -13.386
 
 [node name="Parallax2D" type="Parallax2D" parent="SubViewportContainer/SubViewport"]
