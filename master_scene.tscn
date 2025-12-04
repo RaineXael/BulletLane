@@ -21,10 +21,9 @@ outline_color = Color(0, 0, 0, 1)
 [node name="master_scene" type="Node2D"]
 script = ExtResource("1_8rkql")
 
-[node name="Player" parent="." node_paths=PackedStringArray("camera") instance=ExtResource("1_40lka")]
+[node name="Player" parent="." instance=ExtResource("1_40lka")]
 physics_interpolation_mode = 1
 position = Vector2(86, 271)
-camera = NodePath("")
 
 [node name="StaticBody2D" type="StaticBody2D" parent="."]
 
@@ -40,6 +39,7 @@ position = Vector2(12, 146)
 shape = SubResource("RectangleShape2D_40lka")
 
 [node name="SprLand" type="Sprite2D" parent="."]
+z_index = -2
 position = Vector2(86, 317)
 texture = ExtResource("4_woiao")
 
@@ -61,7 +61,7 @@ repeat_times = 3
 
 [node name="Sprite2D" type="Sprite2D" parent="Parallax2D"]
 modulate = Color(0.24461085, 0.18888342, 0.2917189, 1)
-z_index = -1
+z_index = -10
 texture = ExtResource("2_jqmp6")
 script = ExtResource("6_w1x0q")
 

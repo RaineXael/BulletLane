@@ -7,7 +7,7 @@ var dead = false
 @onready var jump_sound:AudioStreamPlayer = $JumpSFX
 @onready var bullet_prefab = load("res://prefabs/player/bullet.tscn")
 @onready var spr = $SpriteContainer/Sprite
-@onready var hand_spr = $HandSprite
+@onready var hand_sprite = $SpriteContainer/HandSprite
 @onready var sprite_container = $SpriteContainer
 @onready var anim = $AnimationPlayer
 @export var camera:Camera2D
@@ -20,7 +20,7 @@ var lives = 3
 @onready var graze_sprite = $Hitbox/CollisionShape2D/Sprite2D
 @onready var score_label = $CanvasLayer/Control/Label
 
-@onready var hand_sprite = $HandSprite
+
 
 var score := 0
 const GRAZE_SCORE = 1
@@ -95,15 +95,15 @@ func _physics_process(delta: float) -> void:
 			if Input.is_action_just_pressed("jump") and not dodging and grounded:
 				velocity.y = -JUMP_INIT_VEL
 				jump_sound.play()
-			if Input.is_action_pressed('dodge'):
-				if not dodging and dodge_cooldown <= 0:
-					dodging = true
-					temp_jump_vel = velocity.y
-					velocity.y = 0
-					$DashSFX.play()
-					print('dodgeing')
-					anim.play('dodge')
-					dodge_time = DODGE_TIME
+			#if Input.is_action_pressed('dodge'):
+				#if not dodging and dodge_cooldown <= 0:
+					#dodging = true
+					#temp_jump_vel = velocity.y
+					#velocity.y = 0
+					#$DashSFX.play()
+					#print('dodgeing')
+					#anim.play('dodge')
+					#dodge_time = DODGE_TIME
 			graze_sprite.visible = focused
 				
 			if Input.is_action_just_pressed('fire'):
@@ -118,7 +118,7 @@ func _physics_process(delta: float) -> void:
 				if not dodging:
 					hand_sprite.visible = true
 					var mouse_pos = (get_mouse_world_pos()- global_position).normalized()
-					hand_sprite.rotation = snapped(atan2(mouse_pos.y, mouse_pos.x), PI/4)
+					hand_sprite.rotation = snapped(atan2(mouse_pos.y, mouse_pos.x), PI/6)
 				else:
 					hand_sprite.visible = false
 			else:
@@ -170,20 +170,21 @@ func set_body_fliph(flipped:bool):
 		var mouse_pos = (get_mouse_world_pos()- global_position).normalized()
 		spr.flip_h = mouse_pos.x < 0
 		if mouse_pos.x < 0:
-			hand_spr.texture = hand_sprite_flipped
+			hand_sprite.texture = hand_sprite_flipped
 		else:
-			hand_spr.texture = hand_sprite_normal
+			hand_sprite.texture = hand_sprite_normal
 		
 
 
 func _on_hitbox_area_entered(area: Area2D) -> void:
-	
 	if area is Bullet:
 		if area.type != 'player':
 			on_hit_with_bullet()
 			area.queue_free()
+			
 func spawn_bullet_to_cursor():
 	var bullet = bullet_prefab.instantiate()
+	bullet.z_index = -1
 	bullet.type = 'player'
 	print(get_parent())
 	bullet.speed = bullet_speed

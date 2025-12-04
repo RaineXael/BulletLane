@@ -49,7 +49,7 @@ tracks/1/keys = {
 tracks/2/type = "value"
 tracks/2/imported = false
 tracks/2/enabled = true
-tracks/2/path = NodePath("../../HandSprite:position")
+tracks/2/path = NodePath("../HandSprite:position")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
@@ -122,7 +122,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../HandSprite:position")
+tracks/1/path = NodePath("../HandSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -151,7 +151,7 @@ tracks/0/keys = {
 tracks/1/type = "value"
 tracks/1/imported = false
 tracks/1/enabled = true
-tracks/1/path = NodePath("../../HandSprite:position")
+tracks/1/path = NodePath("../HandSprite:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
@@ -205,6 +205,7 @@ shape = SubResource("RectangleShape2D_sxsrd")
 shape = SubResource("RectangleShape2D_wv1mm")
 
 [node name="Sprite2D" type="Sprite2D" parent="Hitbox/CollisionShape2D"]
+self_modulate = Color(1, 1, 1, 0)
 z_index = 1
 scale = Vector2(0.5, 0.5)
 texture = ExtResource("2_klv5p")
@@ -298,6 +299,11 @@ texture = ExtResource("5_2c4n1")
 hframes = 8
 region_rect = Rect2(0, 0, 32, 48)
 
+[node name="HandSprite" type="Sprite2D" parent="SpriteContainer"]
+position = Vector2(0, -2)
+texture = ExtResource("10_oo3uv")
+offset = Vector2(2, 2)
+
 [node name="GrazeHitbox" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="GrazeHitbox"]
@@ -327,11 +333,6 @@ volume_db = -7.208
 [node name="JumpSFX" type="AudioStreamPlayer" parent="."]
 stream = ExtResource("12_hvqk4")
 volume_db = -7.443
-
-[node name="HandSprite" type="Sprite2D" parent="."]
-position = Vector2(0, -2)
-texture = ExtResource("10_oo3uv")
-offset = Vector2(2, 2)
 
 [connection signal="area_entered" from="Hitbox" to="." method="_on_hitbox_area_entered"]
 [connection signal="pressed" from="CanvasLayer2/Control/Label/Button" to="." method="_on_button_pressed"]
